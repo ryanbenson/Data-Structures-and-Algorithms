@@ -1,13 +1,4 @@
-package main
-
-import "fmt"
-
-func main() {
-	numbers := []int{9, 1, 2, 3, 4, 5}
-	target := 9
-	result := twoSum(numbers, target)
-	fmt.Println(result)
-}
+package twosum
 
 func twoSum(list []int, target int) []int {
 	// hold our ints in a map so we can do a lookup to see if we have the number we need
@@ -31,5 +22,5 @@ func twoSum(list []int, target int) []int {
 	}
 
 	// didn't find anything?
-	return []int{}
+	return nil
 }
