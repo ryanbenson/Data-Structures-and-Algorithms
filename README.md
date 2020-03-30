@@ -1,4 +1,4 @@
-# laera [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d069651716614b49b28f556bf26e23a8)](https://www.codacy.com/manual/ryanbenson/laera)
+# laera [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d069651716614b49b28f556bf26e23a8)](https://www.codacy.com/manual/ryanbenson/laera)[![Build Status](https://travis-ci.org/ryanbenson/laera.svg?branch=master)](https://travis-ci.org/ryanbenson/laera)
 Ég elska að læra
 
 ## Pursuit of Learning
