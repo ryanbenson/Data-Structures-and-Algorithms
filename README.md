@@ -9,8 +9,8 @@ This is a repo of my coding pursuit to try to expand myself as an engineer. I lo
 ## Exercises
 I'm getting the exercises from a variety of places, and more:
 
-* [LeetCode](https://leetcode.com)
-* [Gophercises](https://gophercises.com/)
+  * [LeetCode](https://leetcode.com)
+  * [Gophercises](https://gophercises.com/)
 
 ## Code
 Most of everything will be found in sub directories here. There should be a readme for each directory explaining the problem and any other information.
