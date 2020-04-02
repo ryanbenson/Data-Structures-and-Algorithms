@@ -16,10 +16,11 @@ func getMeanMedianMode(numbers []int) meanMedianMode {
 	sort.Ints(numbers)
 
 	mean := mean(numbers)
+	median := median(numbers)
 
 	return meanMedianMode{
 		mean:   mean,
-		median: 12.5,
+		median: median,
 		mode:   2,
 	}
 }
@@ -34,4 +35,19 @@ func mean(numbers []int) float64 {
 	}
 
 	return math.Round(totalValue / float64(totalNumbers))
+}
+
+func median(numbers []int) float64 {
+	totalNumbers := len(numbers)
+
+	if totalNumbers%2 == 0 {
+		upperIndex := totalNumbers / 2
+		lowerIndex := upperIndex - 1
+		upperNumber := numbers[upperIndex]
+		lowerNumber := numbers[lowerIndex]
+		return float64((upperNumber + lowerNumber) / 2)
+	}
+
+	index := math.Floor(float64(totalNumbers / 2))
+	return float64(numbers[int8(index)])
 }
