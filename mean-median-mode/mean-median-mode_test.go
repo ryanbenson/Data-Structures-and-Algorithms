@@ -39,3 +39,13 @@ func TestGetMeanMedianMode_oddNumberOfValues(t *testing.T) {
 		t.Errorf("Mode int is incorrect, got: %d, want: %d.", results.mode, expected.mode)
 	}
 }
+
+func TestMean(t *testing.T) {
+	results := mean([]int{23, 12, 786, 7, 35, 12, 9})
+	var expected float64
+	expected = 126
+
+	if results != expected {
+		t.Errorf("Mean is incorrect, got: %v, want: %v.", results, expected)
+	}
+}
