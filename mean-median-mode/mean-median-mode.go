@@ -8,7 +8,7 @@ import (
 type meanMedianMode struct {
 	mean   float64
 	median float64
-	mode   int
+	mode   []int
 }
 
 func getMeanMedianMode(numbers []int) meanMedianMode {
@@ -17,11 +17,12 @@ func getMeanMedianMode(numbers []int) meanMedianMode {
 
 	mean := mean(numbers)
 	median := median(numbers)
+	mode := mode(numbers)
 
 	return meanMedianMode{
 		mean:   mean,
 		median: median,
-		mode:   2,
+		mode:   mode,
 	}
 }
 
@@ -50,4 +51,32 @@ func median(numbers []int) float64 {
 
 	index := math.Floor(float64(totalNumbers / 2))
 	return float64(numbers[int8(index)])
+}
+
+func mode(numbers []int) []int {
+	numberMap := make(map[int]int)
+
+	for _, num := range numbers {
+		numberMap[num] = numberMap[num] + 1
+	}
+
+	highestOccured := 0
+	highestNumber := 0
+	for number, occured := range numberMap {
+		if occured > highestOccured {
+			highestOccured = occured
+			highestNumber = number
+		}
+	}
+
+	// if there are no repeats in the list, then there's no mode
+	if highestOccured == 1 {
+		return nil
+	}
+
+	modes := []int{}
+	// TODO: Add support for more than one mode
+	modes = append(modes, highestNumber)
+
+	return modes
 }

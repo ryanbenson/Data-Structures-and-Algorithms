@@ -7,7 +7,7 @@ func TestGetMeanMedianMode_evenNumberOfValues(t *testing.T) {
 	expected := meanMedianMode{
 		mean:   4,
 		median: 3,
-		mode:   1,
+		mode:   nil,
 	}
 
 	if results.mean != expected.mean {
@@ -16,8 +16,8 @@ func TestGetMeanMedianMode_evenNumberOfValues(t *testing.T) {
 	if results.median != expected.median {
 		t.Errorf("Median int is incorrect, got: %v, want: %v.", results.median, expected.median)
 	}
-	if results.mode != expected.mode {
-		t.Errorf("Mode int is incorrect, got: %d, want: %d.", results.mode, expected.mode)
+	if results.mode != nil {
+		t.Errorf("Mode int is incorrect, got: %v, want: %v.", results.mode, nil)
 	}
 }
 
@@ -26,7 +26,7 @@ func TestGetMeanMedianMode_oddNumberOfValues(t *testing.T) {
 	expected := meanMedianMode{
 		mean:   126,
 		median: 12,
-		mode:   21,
+		mode:   []int{12},
 	}
 
 	if results.mean != expected.mean {
@@ -35,8 +35,8 @@ func TestGetMeanMedianMode_oddNumberOfValues(t *testing.T) {
 	if results.median != expected.median {
 		t.Errorf("Median is incorrect, got: %v, want: %v.", results.median, expected.median)
 	}
-	if results.mode != expected.mode {
-		t.Errorf("Mode is incorrect, got: %d, want: %d.", results.mode, expected.mode)
+	if results.mode[0] != expected.mode[0] {
+		t.Errorf("Mode is incorrect, got: %v, want: %v.", results.mode, expected.mode[0])
 	}
 }
 
@@ -67,5 +67,14 @@ func TestMedian_OddNumberItems(t *testing.T) {
 
 	if results != expected {
 		t.Errorf("Median is incorrect, got: %v, want: %v.", results, expected)
+	}
+}
+
+func TestMode(t *testing.T) {
+	results := mode([]int{1, 5, 7, 9, 12, 5, 1, 9, 9, 5, 7, 9, 9})
+	expected := []int{9}
+
+	if results[0] != expected[0] {
+		t.Errorf("Mode is incorrect, got: %v, want: %v.", results, expected)
 	}
 }
