@@ -1,6 +1,9 @@
 package meanmedianmode
 
-import "testing"
+import (
+	"sort"
+	"testing"
+)
 
 func TestGetMeanMedianMode_evenNumberOfValues(t *testing.T) {
 	results := getMeanMedianMode([]int{9, 1, 2, 3, 4, 5})
@@ -95,7 +98,7 @@ func TestMode(t *testing.T) {
 	expected := []int{9}
 
 	if results[0] != expected[0] {
-		t.Errorf("Mode is incorrect, got: %v, want: %v.", results, expected)
+		t.Errorf("Mode is incorrect, got: %v, want: %v.", results[0], expected[0])
 	}
 }
 
@@ -104,6 +107,21 @@ func TestMode_SingleValue(t *testing.T) {
 	expected := []int{333}
 
 	if results[0] != expected[0] {
-		t.Errorf("Mode is incorrect, got: %v, want: %v.", results, expected)
+		t.Errorf("Mode is incorrect, got: %v, want: %v.", results[0], expected[0])
+	}
+}
+
+func TestMode_MultiModes(t *testing.T) {
+	results := mode([]int{5, 5, 5, 7, 7, 7, 9})
+	foundMode1 := sort.SearchInts(results, 5)
+	foundMode2 := sort.SearchInts(results, 1)
+	shouldNotBe := 2 // not found number from SearchInts
+
+	if foundMode1 == shouldNotBe {
+		t.Errorf("Mode 1 is incorrect, got: %v, shoult not be: %v.", foundMode1, shouldNotBe)
+	}
+
+	if foundMode2 == shouldNotBe {
+		t.Errorf("Mode 2 is incorrect, got: %v,  shoult not be: %v.", foundMode2, shouldNotBe)
 	}
 }

@@ -73,10 +73,19 @@ func mode(numbers []int) []int {
 
 	highestOccured := 0
 	highestNumber := 0
+	modes := []int{}
 	for number, occured := range numberMap {
 		if occured > highestOccured {
 			highestOccured = occured
 			highestNumber = number
+
+			// we have a new highest, reset our modes
+			modes = []int{highestNumber}
+			continue
+		}
+		// if we have a matching number, add it since we can have more than one mode
+		if occured == highestOccured {
+			modes = append(modes, highestNumber)
 		}
 	}
 
@@ -84,10 +93,5 @@ func mode(numbers []int) []int {
 	if highestOccured == 1 {
 		return nil
 	}
-
-	modes := []int{}
-	// TODO: Add support for more than one mode
-	modes = append(modes, highestNumber)
-
 	return modes
 }
