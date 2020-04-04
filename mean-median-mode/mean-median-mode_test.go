@@ -50,6 +50,16 @@ func TestMean(t *testing.T) {
 	}
 }
 
+func TestMean_SingleValue(t *testing.T) {
+	results := mean([]int{23})
+	var expected float64
+	expected = 23
+
+	if results != expected {
+		t.Errorf("Mean is incorrect, got: %v, want: %v.", results, expected)
+	}
+}
+
 func TestMedian_EvenNumberItems(t *testing.T) {
 	results := median([]int{5, 7, 99, 5, 12, 34, 19, 357})
 	var expected float64
@@ -70,9 +80,28 @@ func TestMedian_OddNumberItems(t *testing.T) {
 	}
 }
 
+func TestMedian_SingleValue(t *testing.T) {
+	results := median([]int{5})
+	var expected float64
+	expected = 5
+
+	if results != expected {
+		t.Errorf("Median is incorrect, got: %v, want: %v.", results, expected)
+	}
+}
+
 func TestMode(t *testing.T) {
 	results := mode([]int{1, 5, 7, 9, 12, 5, 1, 9, 9, 5, 7, 9, 9})
 	expected := []int{9}
+
+	if results[0] != expected[0] {
+		t.Errorf("Mode is incorrect, got: %v, want: %v.", results, expected)
+	}
+}
+
+func TestMode_SingleValue(t *testing.T) {
+	results := mode([]int{333})
+	expected := []int{333}
 
 	if results[0] != expected[0] {
 		t.Errorf("Mode is incorrect, got: %v, want: %v.", results, expected)

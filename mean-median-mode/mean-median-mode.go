@@ -28,6 +28,10 @@ func getMeanMedianMode(numbers []int) meanMedianMode {
 
 func mean(numbers []int) float64 {
 	totalNumbers := len(numbers)
+	if totalNumbers == 1 {
+		return float64(numbers[0])
+	}
+
 	var totalValue float64
 	totalValue = 0
 
@@ -40,6 +44,9 @@ func mean(numbers []int) float64 {
 
 func median(numbers []int) float64 {
 	totalNumbers := len(numbers)
+	if totalNumbers == 1 {
+		return float64(numbers[0])
+	}
 
 	if totalNumbers%2 == 0 {
 		upperIndex := totalNumbers / 2
@@ -54,6 +61,10 @@ func median(numbers []int) float64 {
 }
 
 func mode(numbers []int) []int {
+	if len(numbers) == 1 {
+		return []int{numbers[0]}
+	}
+
 	numberMap := make(map[int]int)
 
 	for _, num := range numbers {
