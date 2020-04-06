@@ -11,8 +11,10 @@ func compareWithBackspace(sequence1 string, sequence2 string) bool {
 func buildString(sequence string) string {
 	finalString := ""
 	for _, letter := range sequence {
+		// we get a rune, so convert to a string
 		stringLetter := string(letter)
 		if stringLetter == "#" {
+			// check to see if we're at an empty string or not
 			strLen := len(finalString)
 			if strLen > 0 {
 				finalString = finalString[:strLen-1]
