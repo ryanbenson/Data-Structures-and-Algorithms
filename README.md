@@ -11,6 +11,7 @@ I'm getting the exercises from a variety of places, and more:
 
 *   [LeetCode](https://leetcode.com)
 *   [Gophercises](https://gophercises.com/)
+*   [cassidoo newsletter](https://cassidoo.co/newsletter/) 🎉 (amazing newsletter by the way)
 
 ## Code
 Most of everything will be found in sub directories here. There should be a readme for each directory explaining the problem and any other information.
