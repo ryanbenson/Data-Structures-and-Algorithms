@@ -6,9 +6,10 @@ type listNode struct {
 }
 
 // Adds two list nodes togehter that are linked lists with an int in it
-func addTwoNumbers(list1 listNode, list2 listNode) listNode {
-	return listNode{
-		num:  1,
+func addTwoNumbers(list1 *listNode, list2 *listNode, carry int) *listNode {
+	res := &listNode{
+		num: 1,
 		next: nil,
 	}
+	return res
 }
