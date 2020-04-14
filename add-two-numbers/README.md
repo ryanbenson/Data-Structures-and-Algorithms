@@ -9,3 +9,7 @@ You may assume the two numbers do not contain any leading zero, except the numbe
 *   `Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)`
 *   `Output: 7 -> 0 -> 8`
 *   `Explanation: 342 + 465 = 807`
+
+## Thoughts
+
+I had never worked with linked lists before, so it was an interesting exercise. The most simple but only thing that tripped me up was advancing the pointer in the linked list. Once that was done, it was simple math. It was fun and I learned something new!
