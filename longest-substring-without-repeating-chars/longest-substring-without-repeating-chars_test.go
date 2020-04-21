@@ -31,3 +31,12 @@ func TestGetLongestSubstrLengthWithoutRepeats_NotSubsequence(t *testing.T) {
 		t.Errorf("Length is incorrect, got: %v, want: %v.", result, expected)
 	}
 }
+
+func TestGetLongestSubstrLengthWithoutRepeats_OneChar(t *testing.T) {
+	result := getLongestSubstrLengthWithoutRepeats("z")
+	expected := 1 // The answer is "z", with the length of 1. 
+
+	if result != expected {
+		t.Errorf("Length is incorrect, got: %v, want: %v.", result, expected)
+	}
+}
