@@ -9,6 +9,7 @@ func getLongestSubstrLengthWithoutRepeats(haystack string) int {
 		return 1
 	}
 
+	longestSubstringLen := 0
 	startingCharIndex := 0
 	charIndex := 0
 	for startingCharIndex != haystackLen -1 {
@@ -18,13 +19,13 @@ func getLongestSubstrLengthWithoutRepeats(haystack string) int {
 
 		// TODO: check if string we get from haystack is unique list of chars or not
 
-		if charIndex >= haystackLen -1 {
+		if charIndex > haystackLen {
 			startingCharIndex += 1
 			// always reset the charindex to our starting index, not 0
 			charIndex = startingCharIndex
 		}
 
-		if startingCharIndex >= haystackLen -1 {
+		if startingCharIndex > haystackLen {
 			break
 		}
 	}
