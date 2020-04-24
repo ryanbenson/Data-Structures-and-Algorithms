@@ -40,3 +40,30 @@ func TestGetLongestSubstrLengthWithoutRepeats_OneChar(t *testing.T) {
 		t.Errorf("Length is incorrect, got: %v, want: %v.", result, expected)
 	}
 }
+
+func TestIsStringUniqueChars_OneChar(t *testing.T) {
+	result := isStringUniqueChars("z")
+	expected := true
+
+	if result != expected {
+		t.Errorf("Is unique string with one char is incorrect, got %v, want %v", result, expected)
+	}
+}
+
+func TestIsStringUniqueChars_LotsOfCharAllUnique(t *testing.T) {
+	result := isStringUniqueChars("zxcvbnmasdfghjklqwertyuiop")
+	expected := true
+
+	if result != expected {
+		t.Errorf("Is unique string with one char is incorrect, got %v, want %v", result, expected)
+	}
+}
+
+func TestIsStringUniqueChars_LotsOfCharWithDuplicate(t *testing.T) {
+	result := isStringUniqueChars("zxcvbnmasdfghjklqffdafadsadwertyuiop")
+	expected := false
+
+	if result != expected {
+		t.Errorf("Is unique string with one char is incorrect, got %v, want %v", result, expected)
+	}
+}
