@@ -26,11 +26,11 @@ func getLongestSubstrLengthWithoutRepeats(haystack string) int {
 		}
 
 		// update the right side of our window
-		charIndex += 1
+		charIndex++
 
 		// if our right side of the window is longer than the window bounds, reset the window to move up a letter
 		if charIndex > haystackLen {
-			startingCharIndex += 1
+			startingCharIndex++
 			// always reset the charindex to our starting index, not 0
 			charIndex = startingCharIndex
 		}
