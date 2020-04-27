@@ -42,6 +42,8 @@ func getMedianTwoArraysOptimized(arr1 []int, arr2 []int) float64 {
 	if totalLen %2 == 0 {
 		isEven = true
 		targetNumbersCount = totalLen / 2 + 1 // use the upper index, we'll -1 later if it's even. by default it rounds down
+	} else {
+		targetNumbersCount = totalLen / 2
 	}
 	
 	curArr1Index := 0
