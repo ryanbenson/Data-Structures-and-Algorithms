@@ -1,6 +1,6 @@
 package longestsubstringwithoutrepeatingchars
 
-// Gets the longest substring of letters (its length) that does not have a repeated character in it
+// getLongestSubstrLengthWithoutRepeats gets the longest substring of letters (its length) that does not have a repeated character in it
 func getLongestSubstrLengthWithoutRepeats(haystack string) int {
 	// don't need to bother figuring it out if it's a single string
 	haystackLen := len(haystack)
@@ -39,7 +39,7 @@ func getLongestSubstrLengthWithoutRepeats(haystack string) int {
 	return longestSubstringLen
 }
 
-// Determines if a string is made up of unique letters only or not
+// isStringUniqueChars determines if a string is made up of unique letters only or not
 func isStringUniqueChars(sequence string) bool {
 	// using a map since it's resource beneficial and easy to lookup
 	letterMap := make(map[string]int)
