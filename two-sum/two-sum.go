@@ -1,5 +1,6 @@
 package twosum
 
+// twoSum returns indices of the two numbers such that they add up to a specific target
 func twoSum(list []int, target int) []int {
 	// hold our ints in a map so we can do a lookup to see if we have the number we need
 	numberMap := make(map[int]int)
