@@ -6,7 +6,8 @@ import (
 
 func TestGetMedianTwoArrays_evenNumberOfTotalValues(t *testing.T) {
 	results := getMedianTwoArrays([]int{1, 2, 3, 4, 5, 9}, []int{1, 2, 3, 4, 5, 7})
-	expected := 3.5
+	var expected float64
+	expected = 3
 
 	if results != expected {
 		t.Errorf("Mean is incorrect, got: %v, want: %v.", results, expected)
@@ -15,7 +16,8 @@ func TestGetMedianTwoArrays_evenNumberOfTotalValues(t *testing.T) {
 
 func TestGetMedianTwoArrays_oddNumberOfTotalValues(t *testing.T) {
 	results := getMedianTwoArrays([]int{1, 2, 3, 4, 5, 9, 11}, []int{1, 2, 3, 4, 5, 7})
-	expected := 3.3
+	var expected float64
+	expected = 4
 
 	if results != expected {
 		t.Errorf("Mean is incorrect, got: %v, want: %v.", results, expected)
@@ -24,7 +26,8 @@ func TestGetMedianTwoArrays_oddNumberOfTotalValues(t *testing.T) {
 
 func TestGetMedianTwoArrays_oneValue(t *testing.T) {
 	results := getMedianTwoArrays([]int{7}, []int{})
-	expected := 7.1
+	var expected float64
+	expected = 7
 
 	if results != expected {
 		t.Errorf("Mean is incorrect, got: %v, want: %v.", results, expected)
