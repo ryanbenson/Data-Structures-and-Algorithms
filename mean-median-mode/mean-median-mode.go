@@ -11,6 +11,7 @@ type meanMedianMode struct {
 	mode   []int
 }
 
+// getMeanMedianMode provides a struct of the mean, median and mode of an array of ints
 func getMeanMedianMode(numbers []int) meanMedianMode {
 	// first we need to sort our list of numbers
 	sort.Ints(numbers)
@@ -26,6 +27,7 @@ func getMeanMedianMode(numbers []int) meanMedianMode {
 	}
 }
 
+// mean returns the mean of a sorted array of ints
 func mean(numbers []int) float64 {
 	totalNumbers := len(numbers)
 	if totalNumbers == 1 {
@@ -42,6 +44,7 @@ func mean(numbers []int) float64 {
 	return math.Round(totalValue / float64(totalNumbers))
 }
 
+// median returns the median of a sorted array of ints
 func median(numbers []int) float64 {
 	totalNumbers := len(numbers)
 	if totalNumbers == 1 {
@@ -60,6 +63,7 @@ func median(numbers []int) float64 {
 	return float64(numbers[int8(index)])
 }
 
+// mode returns the mode of an array of ints
 func mode(numbers []int) []int {
 	if len(numbers) == 1 {
 		return []int{numbers[0]}
