@@ -9,9 +9,6 @@ Given two sorted arrays, return the median of both arrays
 *   `Given nums = [2, 7, 11, 15], [1, 2, 5, 7, 9]` 
 *   `Returns: 7`
 
-## Bonus
-An added bonus if it can be done in run time complexity should be O(log (m+n))
-
 ## Thoughts
 
 A simple solution that is easy to read and understand is to simply merge the two arrays, re-sort the arrays and then get the median from the final array
