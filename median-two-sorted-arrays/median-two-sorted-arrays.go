@@ -35,7 +35,7 @@ func getMedianTwoArraysOptimized(arr1 []int, arr2 []int) float64 {
 	// get the target index(es) based on the length of both arrays
 	arr1Len := len(arr1)
 	arr2Len := len(arr2)
-	totalLen = arr1Len + arr2Len
+	totalLen := arr1Len + arr2Len
 	var targetNumbersCount int
 	isEven := false
 	
@@ -52,13 +52,13 @@ func getMedianTwoArraysOptimized(arr1 []int, arr2 []int) float64 {
 	medianNumber := 0
 	
 	// loop through our arrays using the smallest ints we can find until we get our median index(es)
-	for numbersCounted <= targetIndex {
+	for numbersCounted <= targetNumbersCount {
 		val1 := arr1[curArr1Index]
 		val2 := arr1[curArr2Index]
 		
 		if (val1 <= val2) {
 			// if we're at the index we want, we have our median
-			if pointerIndex == targetIndex {
+			if numbersCounted == targetNumbersCount {
 				medianNumber = val1
 			} else {
 				// otherwise hold onto the previous number in case it's an even count and move on
@@ -67,7 +67,7 @@ func getMedianTwoArraysOptimized(arr1 []int, arr2 []int) float64 {
 			}
 		} else {
 			// same as before if val1 was lower, but using val2
-			if pointerIndex == targetIndex {
+			if numbersCounted == targetNumbersCount {
 				medianNumber = val2
 			} else {
 				previousNumber = val2
