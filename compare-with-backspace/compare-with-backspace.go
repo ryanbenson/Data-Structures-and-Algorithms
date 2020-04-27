@@ -1,12 +1,12 @@
 package comparewithbackspace
 
-// Compare two strings that might have backspaces in it ("#")
+// compareWithBackspace compare two strings that might have backspaces in it ("#")
 // to see if they match after processing them
 func compareWithBackspace(sequence1 string, sequence2 string) bool {
 	return buildString(sequence1) == buildString(sequence2)
 }
 
-// process a string sequence, which includes deleting a character
+// buildString process a string sequence, which includes deleting a character
 // using "#", and return the final result
 func buildString(sequence string) string {
 	finalString := ""
