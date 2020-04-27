@@ -54,7 +54,7 @@ func getMedianTwoArraysOptimized(arr1 []int, arr2 []int) float64 {
 	medianNumber := 0
 	
 	// loop through our arrays using the smallest ints we can find until we get our median index(es)
-	for numbersCounted <= targetNumbersCount {
+	for numbersCounted < targetNumbersCount {
 		val1 := arr1[curArr1Index]
 		val2 := arr1[curArr2Index]
 		
