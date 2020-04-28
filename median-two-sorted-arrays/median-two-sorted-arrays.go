@@ -12,9 +12,6 @@ func getMedianTwoArrays(arr1 []int, arr2 []int) float64 {
 	sort.Ints(numbers)
 
 	totalNumbers := len(numbers)
-	if totalNumbers == 1 {
-		return float64(numbers[0])
-	}
 
 	if totalNumbers%2 == 0 {
 		upperIndex := totalNumbers / 2
