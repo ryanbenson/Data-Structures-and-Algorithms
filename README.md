@@ -15,3 +15,10 @@ I'm getting the exercises from a variety of places, and more:
 
 ## Code
 Most of everything will be found in sub directories here. There should be a readme for each directory explaining the problem and any other information.
+
+## Benchmarks
+Some exercises may have benchmarks. To run those:
+
+```console
+go test ./... -bench=.
+```
