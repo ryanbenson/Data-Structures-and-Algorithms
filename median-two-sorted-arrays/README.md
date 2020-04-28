@@ -24,6 +24,6 @@ While the simple solution is pretty easy to understand, it comes at the cost of 
 The runtime and cost is dramatically less:
 
 ```console
-BenchmarkGetMedianTwoArrays-12              4692602       248 ns/op
-BenchmarkGetMedianTwoArraysOptimized-12    81243231        14.6 ns/op
+BenchmarkGetMedianTwoArrays-12              4663264       246 ns/op
+BenchmarkGetMedianTwoArraysOptimized-12    86629614        12.8 ns/op
 ```
