@@ -29,7 +29,7 @@ func getMedianTwoArrays(arr1 []int, arr2 []int) float64 {
 // getMedianTwoArraysOptimized returns the median of two arrays, but using optimized efficiency
 // it avoids merging the two arrays and re-sorting them
 func getMedianTwoArraysOptimized(arr1 []int, arr2 []int) float64 {
-	// get the target index(es) based on the length of both arrays
+	// get the target index based on the length of both arrays
 	arr1Len := len(arr1)
 	arr2Len := len(arr2)
 	totalLen := arr1Len + arr2Len
@@ -40,8 +40,11 @@ func getMedianTwoArraysOptimized(arr1 []int, arr2 []int) float64 {
 		isEven = true
 	}
 	
+	// keep track of where we've stepped in each array
 	curArr1Index := 0
 	curArr2Index := 0
+	
+	// keep track of how many numbers we've counted so we know if hit our median or not
 	numbersCounted := 0
 	
 	previousNumber := 0 // used if we have an even number of items
