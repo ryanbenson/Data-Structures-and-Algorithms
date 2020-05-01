@@ -56,60 +56,113 @@ func TestIsValid_Empty(t *testing.T) {
 	}
 }
 
+// Rune vesion tests
+func TestIsValidRune_SimpleOpenClose(t *testing.T) {
+	result := isValidRune("()")
+	expected := true
+
+	if result != expected {
+		t.Errorf("isValidRune boolean is incorrect, got: %v, want: %v.", result, expected)
+	}
+}
+
+func TestIsValidRune_MultipleChainedOpenClose(t *testing.T) {
+	result := isValidRune("()[]{}")
+	expected := true
+
+	if result != expected {
+		t.Errorf("isValidRune boolean is incorrect, got: %v, want: %v.", result, expected)
+	}
+}
+
+func TestIsValidRune_Mismatched(t *testing.T) {
+	result := isValidRune("(]")
+	expected := false
+
+	if result != expected {
+		t.Errorf("isValidRune boolean is incorrect, got: %v, want: %v.", result, expected)
+	}
+}
+
+func TestIsValidRune_NestedMismatched(t *testing.T) {
+	result := isValidRune("([)]")
+	expected := false
+
+	if result != expected {
+		t.Errorf("isValidRune boolean is incorrect, got: %v, want: %v.", result, expected)
+	}
+}
+
+func TestIsValidRune_NestedProperly(t *testing.T) {
+	result := isValidRune("{[]}")
+	expected := true
+
+	if result != expected {
+		t.Errorf("isValidRune boolean is incorrect, got: %v, want: %v.", result, expected)
+	}
+}
+
+func TestIsValidRune_Empty(t *testing.T) {
+	result := isValidRune("")
+	expected := true
+
+	if result != expected {
+		t.Errorf("isValidRune boolean is incorrect, got: %v, want: %v.", result, expected)
+	}
+}
+
 // Optimized version tests
-
-
-func TestIsValidOptimized_SimpleOpenClose(t *testing.T) {
-	result := isValidOptimized("()")
+func TestIsValidMagic_SimpleOpenClose(t *testing.T) {
+	result := isValidMagic("()")
 	expected := true
 
 	if result != expected {
-		t.Errorf("isValid boolean is incorrect, got: %v, want: %v.", result, expected)
+		t.Errorf("isValidOptimized boolean is incorrect, got: %v, want: %v.", result, expected)
 	}
 }
 
-func TestIsValidOptimized_MultipleChainedOpenClose(t *testing.T) {
-	result := isValidOptimized("()[]{}")
+func TestIsValidMagic_MultipleChainedOpenClose(t *testing.T) {
+	result := isValidMagic("()[]{}")
 	expected := true
 
 	if result != expected {
-		t.Errorf("isValid boolean is incorrect, got: %v, want: %v.", result, expected)
+		t.Errorf("isValidOptimized boolean is incorrect, got: %v, want: %v.", result, expected)
 	}
 }
 
-func TestIsValidOptimized_Mismatched(t *testing.T) {
-	result := isValidOptimized("(]")
+func TestIsValidMagic_Mismatched(t *testing.T) {
+	result := isValidMagic("(]")
 	expected := false
 
 	if result != expected {
-		t.Errorf("isValid boolean is incorrect, got: %v, want: %v.", result, expected)
+		t.Errorf("isValidOptimized boolean is incorrect, got: %v, want: %v.", result, expected)
 	}
 }
 
-func TestIsValidOptimized_NestedMismatched(t *testing.T) {
-	result := isValidOptimized("([)]")
+func TestIsValidMagic_NestedMismatched(t *testing.T) {
+	result := isValidMagic("([)]")
 	expected := false
 
 	if result != expected {
-		t.Errorf("isValid boolean is incorrect, got: %v, want: %v.", result, expected)
+		t.Errorf("isValidOptimized boolean is incorrect, got: %v, want: %v.", result, expected)
 	}
 }
 
-func TestIsValidOptimized_NestedProperly(t *testing.T) {
-	result := isValidOptimized("{[]}")
+func TestIsValidMagic_NestedProperly(t *testing.T) {
+	result := isValidMagic("{[]}")
 	expected := true
 
 	if result != expected {
-		t.Errorf("isValid boolean is incorrect, got: %v, want: %v.", result, expected)
+		t.Errorf("isValidOptimized boolean is incorrect, got: %v, want: %v.", result, expected)
 	}
 }
 
-func TestIsValidOptimized_Empty(t *testing.T) {
-	result := isValidOptimized("")
+func TestIsValidMagic_Empty(t *testing.T) {
+	result := isValidMagic("")
 	expected := true
 
 	if result != expected {
-		t.Errorf("isValid boolean is incorrect, got: %v, want: %v.", result, expected)
+		t.Errorf("isValidOptimized boolean is incorrect, got: %v, want: %v.", result, expected)
 	}
 }
 
@@ -121,8 +174,14 @@ func BenchmarkValidSyntax(b *testing.B) {
     }
 }
 
-func BenchmarkValidSyntaxAlt(b *testing.B) {
+func BenchmarkValidSyntaxRune(b *testing.B) {
     for i := 0; i < b.N; i++ {
-        isValidOptimized("{[]}")
+        isValidRune("{[]}")
+    }
+}
+
+func BenchmarkValidSyntaxMagic(b *testing.B) {
+    for i := 0; i < b.N; i++ {
+        isValidMagic("{[]}")
     }
 }

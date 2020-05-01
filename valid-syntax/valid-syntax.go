@@ -51,7 +51,54 @@ func isValid(sequence string) bool {
 	return true
 }
 
-func isValidOptimized(s string) bool {
+// isValid checks to make a sequence of special characters e.g. {}()[]
+// have the proper open and close sequence, including being nested
+// difference betweeen isValid and isValidRune is that this leverages runes over strings internally
+func isValidRune(sequence string) bool {
+	// empty sequences are valid
+	if len(sequence) == 0 {
+		return true
+	}
+
+	sequenceArr := make([]rune, 0)
+	syntaxMap := map[rune]rune {
+		'(': ')',
+		'[': ']',
+		'{': '}',
+	}
+
+	for i, character := range sequence {
+		if i == 0 || len(sequenceArr) == 0 {
+			expectedCloseChar, ok := syntaxMap[character]
+			if ok == false {
+				return false
+			}
+			sequenceArr = append(sequenceArr, expectedCloseChar)
+			continue
+		}
+
+		expectedCloseChar, ok := syntaxMap[character]
+		if ok == true {
+			sequenceArr = append(sequenceArr, expectedCloseChar)
+			continue
+		}
+
+		lastCharacterExpected := sequenceArr[len(sequenceArr)-1]
+		if character != lastCharacterExpected {
+			return false
+		}
+
+		sequenceArr = sequenceArr[:len(sequenceArr)-1]
+	}
+
+	return true
+}
+
+// isValidMagic checks to make a sequence of special characters e.g. {}()[]
+// have the proper open and close sequence, including being nested
+// difference being between isValid and isValidOptimized is the manual magic strings of checking
+// the open and close logic
+func isValidMagic(s string) bool {
 	// similar to above, but using runes over strings
 	sequenceArr := make([]rune, 0)
 	syntaxMap := map[rune]rune {
