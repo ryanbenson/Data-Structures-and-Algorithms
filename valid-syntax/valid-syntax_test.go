@@ -56,6 +56,15 @@ func TestIsValid_Empty(t *testing.T) {
 	}
 }
 
+func TestIsValid_BadFirst(t *testing.T) {
+	result := isValid("}(){}")
+	expected := false
+
+	if result != expected {
+		t.Errorf("isValid boolean is incorrect, got: %v, want: %v.", result, expected)
+	}
+}
+
 // Rune vesion tests
 func TestIsValidRune_SimpleOpenClose(t *testing.T) {
 	result := isValidRune("()")
@@ -111,6 +120,15 @@ func TestIsValidRune_Empty(t *testing.T) {
 	}
 }
 
+func TestIsValidRune_BadFirst(t *testing.T) {
+	result := isValidRune("}(){}")
+	expected := false
+
+	if result != expected {
+		t.Errorf("isValid boolean is incorrect, got: %v, want: %v.", result, expected)
+	}
+}
+
 // Optimized version tests
 func TestIsValidMagic_SimpleOpenClose(t *testing.T) {
 	result := isValidMagic("()")
@@ -163,6 +181,15 @@ func TestIsValidMagic_Empty(t *testing.T) {
 
 	if result != expected {
 		t.Errorf("isValidOptimized boolean is incorrect, got: %v, want: %v.", result, expected)
+	}
+}
+
+func TestIsValidMagic_BadFirst(t *testing.T) {
+	result := isValidMagic("}(){}")
+	expected := false
+
+	if result != expected {
+		t.Errorf("isValid boolean is incorrect, got: %v, want: %v.", result, expected)
 	}
 }
 
