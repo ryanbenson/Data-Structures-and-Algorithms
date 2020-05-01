@@ -50,3 +50,30 @@ func isValid(sequence string) bool {
 
 	return true
 }
+
+func isValidOptimized(s string) bool {
+	// similar to above, but using runes over strings
+	sequenceArr := make([]rune, 0)
+	syntaxMap := map[rune]rune {
+		')': '(',
+		']': '[',
+		'}': '{',
+	}
+
+	for _, char := range s {
+		switch char {
+		// manually check the open character instead of lookup the map
+		case '(', '{', '[':
+			sequenceArr = append(sequenceArr, char)
+		// manually check the closing character
+		case ')', '}', ']':
+			// if our expected sequence is empty, or it isn't the expected character, it's invalid
+			if len(sequenceArr) == 0 || sequenceArr[len(sequenceArr) - 1] != syntaxMap[char]{
+				return false
+			}
+			sequenceArr = sequenceArr[:len(sequenceArr)-1]
+		}
+	}
+
+	return len(sequenceArr) == 0
+}
