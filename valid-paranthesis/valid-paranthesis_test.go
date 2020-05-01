@@ -46,3 +46,12 @@ func TestIsValid_NestedProperly(t *testing.T) {
 		t.Errorf("isValid boolean is incorrect, got: %v, want: %v.", result, expected)
 	}
 }
+
+func TestIsValid_Empty(t *testing.T) {
+	result := isValid("")
+	expected := true
+
+	if result != expected {
+		t.Errorf("isValid boolean is incorrect, got: %v, want: %v.", result, expected)
+	}
+}
