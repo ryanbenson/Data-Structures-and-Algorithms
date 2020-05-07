@@ -8,6 +8,6 @@ Extra credit: Include the option for a user to pick the type of keyboard they ar
 Example:
 
 ```console
-oneRow([‘candy’, ‘doodle’, ‘pop’, ‘shield’, ‘lag’, ‘typewriter’])
-[‘pop’, ‘lag’, ‘typewriter’]
+oneRow(["candy", "doodle", "pop", "shield", "lag", "typewriter"])
+> ["pop", "lag", "typewriter"]
 ```
