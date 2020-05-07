@@ -1,5 +1,5 @@
 package onerow
 
-func isOneRow(sequence string) bool {
-	return true
+func isOneRowFilter(sequence []string) []string {
+	return []string{"test"}
 }
