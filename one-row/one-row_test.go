@@ -51,3 +51,15 @@ func TestIsWordOneRow_Invalid(t *testing.T) {
 		t.Errorf("When testing a word that is valid is incorrect, got %v, want: %v", result, expected)
 	}
 }
+
+func BenchmarkIsOneRowFilter(b *testing.B) {
+    for i := 0; i < b.N; i++ {
+		isOneRowFilter([]string{"candy", "doodle", "pop", "shield", "lag", "typewriter"})
+	}
+}
+
+func BenchmarkIsWordOneRow(b *testing.B) {
+    for i := 0; i < b.N; i++ {
+		isWordOneRow("typewriter")
+	}
+}
