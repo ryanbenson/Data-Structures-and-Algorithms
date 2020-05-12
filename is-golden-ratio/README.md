@@ -11,7 +11,7 @@ Example:
 isGolenRatio(1, 2)
 > false
 
-isGoldenRatio(19.416407865, 12)
+isGoldenRatio(19.416, 12)
 > true
 
 isGoldenRatio(2, 5)
@@ -20,6 +20,6 @@ isGoldenRatio(2, 5)
 isGoldenRatio(1, 0.618)
 > true
 
-isGoldenRatio(61.77, 38.22)
+isGoldenRatio(61.77, 38.176)
 > true
 ```
