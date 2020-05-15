@@ -15,5 +15,5 @@ func isGoldenRatio(x float64, y float64) bool {
 }
 
 func floatRemainder(f float64) float64 {
-	return math.Floor(f*1000) / 1000
+	return math.Round(f*1000)/1000
 }
