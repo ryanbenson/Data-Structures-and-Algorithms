@@ -23,3 +23,12 @@ isGoldenRatio(1, 0.618)
 isGoldenRatio(61.77, 38.176)
 > true
 ```
+
+## Thoughts
+
+### Benchmarks
+
+```console
+BenchmarkIsGoldenRatio-12         	115293860	        10.4 ns/op
+BenchmarkIsGoldenRatioArray-12    	16713176	        70.3 ns/op
+```
