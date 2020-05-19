@@ -25,6 +25,7 @@ isGoldenRatio(61.77, 38.176)
 ```
 
 ## Thoughts
+This was fun! Was an exercise in figuring out the algorithm for the ratio. The only hiccup was finding that there isn't a native way to have a float round to a specific decimal level, so I had to roll my own and be mindful of how it rounds. My initial thought process was to assume `x` was larger and flip the values if that proved false. It seemed like the most effective approach and better than using an array and sorting, even if it's 2 elements. But I saw some chatter about it, so I thought I'd give it a go and see how they compare. It's interesting the impact it has, and it doesn't really bring a lot of legibility to the code either.
 
 ### Benchmarks
 
