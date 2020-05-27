@@ -4,7 +4,7 @@ import "time"
 
 type tweet struct {
   id int
-  userId int
+  userID int
   content string
   createdAt time.Time
 }
