@@ -9,6 +9,12 @@ type tweet struct {
   createdAt time.Time
 }
 
+type user struct {
+  id int
+  username string
+  following []int
+}
+
 func getNewsFeed(userID int) []tweet {
   return []tweet{}
 }
