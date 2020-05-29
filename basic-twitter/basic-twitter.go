@@ -8,3 +8,6 @@ type tweet struct {
   content string
   createdAt time.Time
 }
+
+func getNewsFeed(userID int) []tweet {
+}
