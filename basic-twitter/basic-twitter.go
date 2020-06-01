@@ -1,6 +1,9 @@
 package basictwitter
 
-import "time"
+import (
+  "errors"
+  "time"
+)
 
 type tweet struct {
   id int
