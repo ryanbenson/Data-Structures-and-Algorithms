@@ -27,7 +27,7 @@ func postTweet(userID int, post tweet) (bool, error) {
     return false, errors.New("A user is required to post a tweet")
   }
 
-  return true
+  return true, nil
 }
 
 func follow(userID int, followerUserID int) (bool, error) {
@@ -43,7 +43,7 @@ func follow(userID int, followerUserID int) (bool, error) {
     return false, errors.New("Unable to follow yourself")
   }
 
-  return true
+  return true, nil
 }
 
 func unfollow(userID int, followerUserID int) (bool, error) {
@@ -51,5 +51,5 @@ func unfollow(userID int, followerUserID int) (bool, error) {
     return false, errors.New("Unable to unfollow yourself")
   }
 
-  return true
+  return true, nil
 }
