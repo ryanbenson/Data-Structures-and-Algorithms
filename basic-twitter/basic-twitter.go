@@ -6,17 +6,17 @@ import (
 )
 
 type tweet struct {
-  id int
   userID int
   content string
   createdAt time.Time
 }
 
 type user struct {
-  id int
   username string
   following []int
 }
+
+var tweets []tweet
 
 func getNewsFeed(userID int) []tweet {
   return []tweet{}
@@ -30,6 +30,14 @@ func postTweet(userID int, post string) (bool, error) {
   if post == "" {
     return false, errors.New("A post must have some content")
   }
+
+  t := tweet{
+		userID:     userID,
+		content:    post,
+		createdAt:  time.Now(),
+  }
+  
+  append(tweets, t)
 
   return true, nil
 }
