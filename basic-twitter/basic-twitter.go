@@ -22,9 +22,13 @@ func getNewsFeed(userID int) []tweet {
   return []tweet{}
 }
 
-func postTweet(userID int, post tweet) (bool, error) {
+func postTweet(userID int, post string) (bool, error) {
   if userID == 0 {
     return false, errors.New("A user is required to post a tweet")
+  }
+
+  if post == "" {
+    return false, errors.New("A post must have some content")
   }
 
   return true, nil
