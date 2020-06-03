@@ -18,8 +18,12 @@ type user struct {
 
 var tweets []tweet
 
-func getNewsFeed(userID int) []tweet {
-  return []tweet{}
+func getNewsFeed(userID int) ([]tweet, error) {
+  if userID == 0 {
+    return false, errors.New("A user is required to get a news feed")
+  }
+
+  return []tweet{}, nil
 }
 
 func postTweet(userID int, post string) (bool, error) {
