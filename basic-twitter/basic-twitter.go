@@ -37,7 +37,7 @@ func postTweet(userID int, post string) (bool, error) {
 		createdAt:  time.Now(),
   }
   
-  append(tweets, t)
+  tweets = append(tweets, t)
 
   return true, nil
 }
