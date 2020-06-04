@@ -20,7 +20,7 @@ var tweets []tweet
 
 func getNewsFeed(userID int) ([]tweet, error) {
   if userID == 0 {
-    return false, errors.New("A user is required to get a news feed")
+    return nil, errors.New("A user is required to get a news feed")
   }
 
   return []tweet{}, nil
