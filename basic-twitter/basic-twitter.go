@@ -23,7 +23,7 @@ func getNewsFeed(userID int) ([]tweet, error) {
     return nil, errors.New("A user is required to get a news feed")
   }
 
-  feed := []tweeet{}
+  feed := []tweet{}
   
   for _, tweet := range tweets {
     if tweet.userID == userID {
