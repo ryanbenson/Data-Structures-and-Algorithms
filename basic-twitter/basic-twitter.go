@@ -66,6 +66,22 @@ func follow(userID int, followerUserID int) (bool, error) {
   if userID == followerUserID {
     return false, errors.New("Unable to follow yourself")
   }
+	
+  // do we have a user?
+  var userMatch user
+  for _, user := range users {
+    if user.userID == userID {
+      userMatch = user
+      break
+    }
+  }
+
+  if userMatch == nil {
+    newUser := user{
+      userID: userID
+      following: []int{followerUserID}
+    }
+  }
 
   return true, nil
 }
