@@ -12,11 +12,12 @@ type tweet struct {
 }
 
 type user struct {
-  username string
+  userID int
   following []int
 }
 
 var tweets []tweet
+var users []user
 
 func getNewsFeed(userID int) ([]tweet, error) {
   if userID == 0 {
