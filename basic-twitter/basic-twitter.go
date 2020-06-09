@@ -103,5 +103,32 @@ func unfollow(userID int, followerUserID int) (bool, error) {
     return false, errors.New("Unable to unfollow yourself")
   }
 
-  return true, nil
+  // get our user
+  var userMatch *user
+  for _, user := range users {
+    if user.userID == userID {
+      userMatch = user
+      break
+    }
+  }
+
+  if userMatch == nil {
+    return false, errors.New("User does not exist")
+  }
+
+  // find the user we are to unfollow
+  for i, followingUser := range userMatch.following {
+    // if we find the match, remove it and return early
+    if followingUser == followerUserID {
+      userMatch.following = removeIndex(userMatch.following, i)
+      return true, nil
+    }
+  }
+
+  // if we get here, the user was never following that user
+  return false, errors.New("Unable to unfollow a user that is not followed")
+}
+
+func removeIndex(s []int, index int) []int {
+	return append(s[:index], s[index+1:]...)
 }
