@@ -16,8 +16,8 @@ type user struct {
   following []int
 }
 
-var tweets []tweet
-var users []user
+var tweets []*tweet
+var users []*user
 
 func getNewsFeed(userID int) ([]tweet, error) {
   if userID == 0 {
@@ -44,10 +44,10 @@ func postTweet(userID int, post string) (bool, error) {
     return false, errors.New("A post must have some content")
   }
 
-  t := tweet{
-		userID:     userID,
-		content:    post,
-		createdAt:  time.Now(),
+  t := &tweet{
+    userID:     userID,
+    content:    post,
+    createdAt:  time.Now(),
   }
   
   tweets = append(tweets, t)
@@ -78,12 +78,23 @@ func follow(userID int, followerUserID int) (bool, error) {
   }
 
   if userMatch == nil {
-    newUser := user{
+    newUser := &user{
       userID: userID,
       following: []int{followerUserID},
     }
+    users = append(users, newUser)
+    return true, nil
   }
 
+  // are we already following that user?
+  for _, followingUser := range userMatch.following {
+    if followingUser == followerUserID {
+      return false, errors.New("Already following this user")
+    }
+  }
+
+  // add the new follower to our list
+  _ = append(userMatch.following, followerUserID)
   return true, nil
 }
 
