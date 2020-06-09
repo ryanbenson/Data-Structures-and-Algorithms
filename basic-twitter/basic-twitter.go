@@ -19,12 +19,12 @@ type user struct {
 var tweets []*tweet
 var users []*user
 
-func getNewsFeed(userID int) ([]tweet, error) {
+func getNewsFeed(userID int) ([]*tweet, error) {
   if userID == 0 {
     return nil, errors.New("A user is required to get a news feed")
   }
 
-  feed := []tweet{}
+  feed := []*tweet{}
   
   for _, tweet := range tweets {
     if tweet.userID == userID {
@@ -69,7 +69,7 @@ func follow(userID int, followerUserID int) (bool, error) {
   }
 	
   // do we have a user?
-  var userMatch user
+  var userMatch *user
   for _, user := range users {
     if user.userID == userID {
       userMatch = user
