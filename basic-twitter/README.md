@@ -9,3 +9,7 @@ Some useful functions to include would be:
 *   postTweet(userid, tweet)
 *   follow(follower, followee)
 *   unfollow(follower, followee)
+
+## Thoughts
+
+Overall was interesting and fun. It was an interesting exercise to work with the relationships of data, and I feel like if I had a lot of time then I could really extend this.
