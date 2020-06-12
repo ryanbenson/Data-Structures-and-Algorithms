@@ -78,12 +78,8 @@ func follow(userID int, followerUserID int) (bool, error) {
   }
 
   if userMatch == nil {
-    newUser := &user{
-      userID: userID,
-      following: []int{followerUserID},
-    }
-    users = append(users, newUser)
-    return true, nil
+    return false, errors.New("Unable to find user")
+
   }
 
   // are we already following that user?
