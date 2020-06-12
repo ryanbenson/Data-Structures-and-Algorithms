@@ -78,15 +78,15 @@ func TestFollow_BadUserId(t *testing.T) {
 
 func TestFollow_InvalidFollowerUserIdAlreadyFollowing(t *testing.T) {
 	// reset our users
-	followerId := 9
+	followerID := 9
 
 	newUser := &user{
 		userID: 2,
-		following: []int{followerId},
+		following: []int{followerID},
 	}
 	users = append(users, newUser)
 
-	result, err := follow(2, followerId)
+	result, err := follow(2, followerID)
 	expected := false
 
 	if result != expected {
