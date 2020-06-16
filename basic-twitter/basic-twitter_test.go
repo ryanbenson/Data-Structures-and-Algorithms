@@ -102,14 +102,14 @@ func TestUnfollow_InvalidSelfIDs(t *testing.T) {
 	followerID := 1
 	userID := 1
 
-	result, err := unfollow(2, followerID)
+	result, err := unfollow(userID, followerID)
 	expected := false
 
 	if result != expected {
 		t.Errorf("When unfollowing a user that is yourself, got: %v, want: %v.", result, expected)
 	}
 
-	if err != nil {
+	if err == nil {
 		t.Errorf("When unfollowing a user that is yourself , an error should have been given, got: %v, want: %v.", err, nil)
 	}
 }
