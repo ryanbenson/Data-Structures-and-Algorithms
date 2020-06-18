@@ -214,3 +214,82 @@ func TestPostTweet(t *testing.T) {
 		t.Errorf("When posting a tweet, it should be added to our listt, num of tweets: got %v", numOfTweets)
 	}
 }
+
+func TestGetNewsFeed_BadUserID(t *testing.T) {
+	result, err := getNewsFeed(0)
+
+	if result != nil {
+		t.Errorf("When getting a feed with an invalid User ID, got %v, want, %v", result, nil)
+	}
+	if err == nil {
+		t.Errorf("When getting a feed with an invalid User ID, err should be given, got %v", err)
+	}
+}
+
+func TestGetNewsFeed_InvalidUserID(t *testing.T) {
+	result, err := getNewsFeed(73892729)
+
+	if result != nil {
+		t.Errorf("When getting a feed with a user ID not registered, got %v, want, %v", result, nil)
+	}
+	if err == nil {
+		t.Errorf("When getting a feed with a user ID not registered, err should be given, got %v", err)
+	}
+}
+
+func TestGetNewsFeed_EmptyFollowers(t *testing.T) {
+	newUser := &user{
+		userID: 899,
+		following: []int{},
+	}
+	users = append(users, newUser)
+
+	result, err := getNewsFeed(899)
+
+	if len(result) != 0 {
+		t.Errorf("When getting a feed with no followers, got %v, want, %v", result, nil)
+	}
+	if err == nil {
+		t.Errorf("When getting a feed with no followers, err should be given, got %v", err)
+	}
+}
+
+func TestGetNewsFeed_EmptyFeed(t *testing.T) {
+	newUser := &user{
+		userID: 789,
+		following: []int{9999},
+	}
+	users = append(users, newUser)
+
+	result, err := getNewsFeed(789)
+
+	if len(result) != 0 {
+		t.Errorf("When getting a feed with no content, got %v, want, %v", result, nil)
+	}
+	if err != nil {
+		t.Errorf("When getting a feed with no content, err should be given, got %v", err)
+	}
+}
+
+func TestGetNewsFeed(t *testing.T) {
+	userID := 444
+	followerID := 333
+
+	newUser := &user{
+		userID: userID,
+		following: []int{followerID},
+	}
+	users = append(users, newUser)
+
+	// follower should post somehting
+	_, err := postTweet(followerID, "Hello World")
+	// get feed, it should have the post
+	result, err := getNewsFeed(userID)
+
+	if len(result) != 1 {
+		t.Errorf("When getting a feed with content, got %v, want, %v", result, nil)
+	}
+	if err != nil {
+		t.Errorf("When getting a feed with content, err should be given, got %v", err)
+	}
+}

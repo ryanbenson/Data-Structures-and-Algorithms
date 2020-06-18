@@ -25,10 +25,31 @@ func getNewsFeed(userID int) ([]*tweet, error) {
   }
 
   feed := []*tweet{}
+
+  // do we have a user?
+  var userMatch *user
+  for _, user := range users {
+    if user.userID == userID {
+      userMatch = user
+      break
+    }
+  }
+
+  if userMatch == nil {
+    return nil, errors.New("Invalid user")
+  }
+
+  followerLen := len(userMatch.following)
+  if followerLen == 0 {
+    return nil, errors.New("Not following anyone")
+  }
   
-  for _, tweet := range tweets {
-    if tweet.userID == userID {
-      feed = append(feed, tweet)
+  // find our followers and their posts
+  for _, followingUser := range userMatch.following {
+    for _, tweet := range tweets {
+      if tweet.userID == followingUser {
+        feed = append(feed, tweet)
+      }
     }
   }
 
