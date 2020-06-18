@@ -173,3 +173,44 @@ func TestUnfollow(t *testing.T) {
 		t.Errorf("When unfollowing a user, an error should not have been given, got: %v, want: %v.", err, nil)
 	}
 }
+
+func TestPostTweet_BadUserID(t *testing.T) {
+	result, err := postTweet(0, "Hello world")
+	expected := false
+
+	if result != expected {
+		t.Errorf("When posting a tweet with an invalid User ID, got %v, want, %v", result, expected)
+	}
+	if err == nil {
+		t.Errorf("When posting a tweet with an invalid User ID, err should be given, got %v", err)
+	}
+}
+
+func TestPostTweet_BadPost(t *testing.T) {
+	result, err := postTweet(100, "")
+	expected := false
+
+	if result != expected {
+		t.Errorf("When posting a tweet with an invalid post content, got %v, want, %v", result, expected)
+	}
+	if err == nil {
+		t.Errorf("When posting a tweet with an invalid post content, err should be given, got %v", err)
+	}
+}
+
+func TestPostTweet(t *testing.T) {
+	result, err := postTweet(100, "Hello World")
+	expected := true
+
+	numOfTweets := len(tweets)
+
+	if result != expected {
+		t.Errorf("When posting a tweet, got %v, want, %v", result, expected)
+	}
+	if err != nil {
+		t.Errorf("When posting a tweet, err should be given, got %v, want %v", err, nil)
+	}
+	if numOfTweets != 1 {
+		t.Errorf("When posting a tweet, it should be added to our listt, num of tweets: got %v", numOfTweets)
+	}
+}
