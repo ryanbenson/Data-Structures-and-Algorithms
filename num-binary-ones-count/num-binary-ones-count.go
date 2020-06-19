@@ -1,5 +1,11 @@
 package numbinaryonescount
 
-func getBinaryOnesCount(num int) int {
-	return 1
+import (
+	"strconv"
+	"strings"
+)
+
+func getBinaryOnesCount(num int64) int {
+	binaryOfInt := strconv.FormatInt(num, 2)
+	return strings.Count(binaryOfInt, "1")
 }
