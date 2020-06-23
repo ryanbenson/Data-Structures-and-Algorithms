@@ -19,6 +19,7 @@ type user struct {
 var tweets []*tweet
 var users []*user
 
+// getNewsFeed returns the content that the users posted based on the user's followers list
 func getNewsFeed(userID int) ([]*tweet, error) {
   if userID == 0 {
     return nil, errors.New("A user is required to get a news feed")
@@ -56,6 +57,7 @@ func getNewsFeed(userID int) ([]*tweet, error) {
   return feed, nil
 }
 
+// postTweet adds a new tweet to the system
 func postTweet(userID int, post string) (bool, error) {
   if userID == 0 {
     return false, errors.New("A user is required to post a tweet")
@@ -76,6 +78,7 @@ func postTweet(userID int, post string) (bool, error) {
   return true, nil
 }
 
+// follow adds a follower to the list of followers for the user
 func follow(userID int, followerUserID int) (bool, error) {
   if userID == 0 {
     return false, errors.New("A user is follow another user")
@@ -115,6 +118,7 @@ func follow(userID int, followerUserID int) (bool, error) {
   return true, nil
 }
 
+// unfollow removes a follower from a user's follower list
 func unfollow(userID int, followerUserID int) (bool, error) {
   if userID == followerUserID {
     return false, errors.New("Unable to unfollow yourself")
@@ -146,6 +150,7 @@ func unfollow(userID int, followerUserID int) (bool, error) {
   return false, errors.New("Unable to unfollow a user that is not followed")
 }
 
+// removeIndex removes an item from an array at the given index
 func removeIndex(s []int, index int) []int {
 	return append(s[:index], s[index+1:]...)
 }
