@@ -5,6 +5,7 @@ import (
 	"sort"
 )
 
+// isGoldenRatio determines if the two points meets the golden ratio or not
 func isGoldenRatio(x float64, y float64) bool {
 	a := x
 	b := y
@@ -17,6 +18,8 @@ func isGoldenRatio(x float64, y float64) bool {
 	return left == right
 }
 
+// isGoldenRatioArray determines if the two points meets the golden ratio or not
+// using an array based algorithm
 func isGoldenRatioArray(x float64, y float64) bool {
 	numbers := []float64{x, y}
 	sort.Float64s(numbers)
@@ -29,6 +32,7 @@ func isGoldenRatioArray(x float64, y float64) bool {
 	return left == right
 }
 
+// floatRemainder returns a float with a specific remainder
 func floatRemainder(f float64) float64 {
 	return math.Round(f*1000)/1000
 }
