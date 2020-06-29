@@ -1,5 +1,7 @@
 package onerow
 
+// isOneRowFilter determines which words in an list
+// are made up of all of the letters in a single row on a keyboard
 func isOneRowFilter(words []string) []string {
 	wordsWithSameRow := make([]string, 0)
 
@@ -12,6 +14,8 @@ func isOneRowFilter(words []string) []string {
 	return wordsWithSameRow
 }
 
+// isWordOneRow determins if a single word is made up of letters
+// from a single row of keys on the keyboard
 func isWordOneRow(word string) bool {
 	keyMap := map[rune]int {
 		'q': 1,
