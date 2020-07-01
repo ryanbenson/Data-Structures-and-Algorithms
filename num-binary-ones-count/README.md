@@ -9,3 +9,7 @@ Example:
 getBinaryOnesCount(13) => 3
 # 13 = 1101
 ```
+
+## Thoughts
+
+Was an interesting exercise. The standard libs made it easy to convert the number to binary. After that it was pretty simple to do the rest.
