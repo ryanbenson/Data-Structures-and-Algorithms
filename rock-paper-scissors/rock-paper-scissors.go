@@ -2,6 +2,7 @@ package rockpaperscissors
 
 import "math/rand"
 
+// getOpponentMove returns a random move
 func getOpponentMove() string {
 	possibleMoves := []string{"rock", "paper", "scissors"}
 	randomIndex := rand.Intn(len(possibleMoves))
@@ -9,6 +10,7 @@ func getOpponentMove() string {
 	return move
 }
 
+// isValidMove determines if a move is valid
 func isValidMove(move string) bool {
 	if move != "rock" && move != "paper" && move != "scissors" {
 		return false
@@ -16,6 +18,7 @@ func isValidMove(move string) bool {
 	return true
 }
 
+// evaluateGame determines the result of the game comparing the user and opponment move
 func evaluateGame(userMove string, opponentMove string) string {
 	if userMove == opponentMove {
 		return "tie"
