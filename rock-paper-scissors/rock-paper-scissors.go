@@ -26,12 +26,10 @@ func evaluateGame(userMove string, opponentMove string) string {
 		return "win"
 	}
 
-	// list out the win scenarios
 	if userMove == "paper" && opponentMove == "rock" {
 		return "win"
 	}
 
-	// list out the win scenarios
 	if userMove == "scissors" && opponentMove == "paper" {
 		return "win"
 	}
