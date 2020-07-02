@@ -17,5 +17,25 @@ func isValidMove(move string) bool {
 }
 
 func evaluateGame(userMove string, opponentMove string) string {
-	return "win"
+	if userMove == opponentMove {
+		return "tie"
+	}
+
+	// list out the win scenarios
+	if userMove == "rock" && opponentMove == "scissors" {
+		return "win"
+	}
+
+	// list out the win scenarios
+	if userMove == "paper" && opponentMove == "rock" {
+		return "win"
+	}
+
+	// list out the win scenarios
+	if userMove == "scissors" && opponentMove == "paper" {
+		return "win"
+	}
+
+	// anything else means the user lost
+	return "lose"
 }
