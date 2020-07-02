@@ -1,7 +1,12 @@
 package rockpaperscissors
 
+import "math/rand"
+
 func getOpponentMove() string {
-	return "rock"
+	possibleMoves := []string{"rock", "paper", "scissors"}
+	randomIndex := rand.Intn(len(possibleMoves))
+	move := possibleMoves[randomIndex]
+	return move
 }
 
 func isValidMove(move string) bool {
