@@ -5,6 +5,9 @@ func getOpponentMove() string {
 }
 
 func isValidMove(move string) bool {
+	if move != "rock" && move != "paper" && move != "scissors" {
+		return false
+	}
 	return true
 }
 
