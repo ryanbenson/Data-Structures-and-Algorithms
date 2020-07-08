@@ -2,6 +2,9 @@ package binaryqueue
 
 import "strconv"
 
+// binaryQueue takes an number, then creates a queue
+// of the numbers leading from 1 to n in the queue
+// and the values in the queue are the binary versions of the nums
 func binaryQueue(lastNum int) []string {
 	queue := []string{}
 	if lastNum <= 0 {
