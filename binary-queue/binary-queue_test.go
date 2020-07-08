@@ -37,3 +37,9 @@ func TestBinaryQueue_Zero(t *testing.T) {
 		t.Errorf("When getting a binary queue, incorrect queue given, got: %v, expected: %v", result, expected)
 	}
 }
+
+func BenchmarkBinaryQueue(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		binaryQueue(16)
+	}
+}
