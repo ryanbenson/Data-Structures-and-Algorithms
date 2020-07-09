@@ -1,7 +1,6 @@
 package rotatearray
 
 import (
-	"bytes"
 	"testing"
 )
 
@@ -10,11 +9,18 @@ func TestRotateArray_Success(t *testing.T) {
 	index := 2
 	result := rotateArray(arr, index)
 
-	expected := []string{4, 5, 1, 2, 3}
+	expected := []int{4, 5, 1, 2, 3}
 
-	matched := bytes.Compare(result, expected)
-	// if matched == 0, they match, otherwise they failed to match
-	if matched != 0 {
+	allMatched := true
+	for i, expectedVal := range expected {
+		resultVal := result[i]
+		// if any fail, then it will error out
+		if expectedVal != resultVal {
+			allMatched = false
+		}
+	}
+	// anything not found? something went wrong
+	if allMatched == false {
 		t.Errorf("When rotating an array, incorrect queue given, got: %v, expected: %v", result, expected)
 	}
 }
