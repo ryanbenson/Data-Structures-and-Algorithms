@@ -85,3 +85,11 @@ func TestRotateArray_IndexExceedsBounds(t *testing.T) {
 		t.Errorf("When rotating an array with a too high index, incorrect error given, got: %v, expected: %v", result, nil)
 	}
 }
+
+func BenchmarkRotateArray(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		arr := []int{1, 2, 3, 4, 5}
+		index := 2
+		_, _ = rotateArray(arr, index)
+	}
+}
