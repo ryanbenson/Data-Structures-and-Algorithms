@@ -44,8 +44,8 @@ func TestFromInt_Success(t *testing.T) {
 		t.Errorf("When converting num to roman numberal, 1111, is incorrect, got: %v, want: %v.", result1, "MCXI")
 	}
 
-	if result8 != "2222" {
-		t.Errorf("When converting num to roman numberal, 2222, is incorrect, got: %v, want: %v.", result1, "2222")
+	if result8 != "MMCCXXII" {
+		t.Errorf("When converting num to roman numberal, 2222, is incorrect, got: %v, want: %v.", result1, "MMCCXXII")
 	}
 
 	if result9 != "CDXLIV" {
@@ -68,7 +68,13 @@ func TestFromInt_Success(t *testing.T) {
 func TestFromInt_Zero(t *testing.T) {
 	zero := fromInt(0)
 
-	if zero != "0" {
-		t.Errorf("When converting num to roman numberal, 0, is incorrect, got: %v, want: %v.", zero, "0")
+	if zero != "" {
+		t.Errorf("When converting num to roman numberal, 0, is incorrect, got: %v, want: %v.", zero, "")
+	}
+}
+
+func BenchmarkFromInt(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		_ = fromInt(444)
 	}
 }
