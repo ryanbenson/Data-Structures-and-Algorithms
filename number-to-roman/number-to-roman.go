@@ -1,6 +1,10 @@
 package numbertoroman
 
 func fromInt(number int) string {
+	if number <= 0 {
+		return ""
+	}
+
 	conversions := []struct {
 		value int
 		digit string
@@ -19,5 +23,15 @@ func fromInt(number int) string {
 		{4, "IV"},
 		{1, "I"},
 	}
-	return "XIII"
+
+	romanNumeral := ""
+	// go through the conversions and decrease from the value from the number
+	// until there's no more numbers left (e.g. hit 0)
+	for _, conversion := range conversions {
+		for number >= conversion.value {
+			romanNumeral += conversion.digit
+			number -= conversion.value
+		}
+	}
+	return romanNumeral
 }
