@@ -32,6 +32,15 @@ func TestIsAnagram_Fail(t *testing.T) {
 	}
 }
 
+func TestSortString(t *testing.T) {
+	result := sortString("hello")
+	expected := "ehllo"
+
+	if result != expected {
+		t.Errorf("When sorting string, incorrect result given, got: %v, expected: %v", result, expected)
+	}
+}
+
 func BenchmarkIsAnagram_SortStrings(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		isAnagram("listen", "silent")
