@@ -29,6 +29,7 @@ func isAnagramLoop(str1 string, str2 string) bool {
 		if str1Index == -1 || str2Index == -1 {
 			return false
 		}
+
 	}
 }
 
