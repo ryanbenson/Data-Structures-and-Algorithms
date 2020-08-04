@@ -16,6 +16,9 @@ isAnagram("bob", "boo") => false
 
 Overall it was pretty simple to determine. Just need to check every letter in each word to ensure every letter matches. A simple, naive, approach is to just sort them both then check them, but that comes at the cost of sorting them, which ends up splitting them into arrays, sorting them, and merging them back. There are more optimized ways of doing this.
 
+Created a method that manipulates strings as it processes. It goes through each letter, finds the index, and if both strings find the letter, then it removes that letter from the string and continues until there are no more letters in the first string. If they are both empty by the end, then it's a match. It performs dramatically better too.
+
 ```console
-BenchmarkIsAnagram_SortStrings-12    	 1876681	       624 ns/op
+BenchmarkIsAnagram_SortStrings-12     	 1910025	       613 ns/op
+BenchmarkIsAnagram_StringsManip-12    	 7131518	       166 ns/op
 ```
