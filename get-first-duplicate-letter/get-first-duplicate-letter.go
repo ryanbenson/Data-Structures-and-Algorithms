@@ -18,3 +18,16 @@ func getFirstDuplicateLetter_Map(word string) string {
 	// never found one
 	return ""
 }
+
+func getFirstDuplicateLetter_Search(word string) string {
+	letters := strings.Split(word, "")
+
+	for _, letter := range letters {
+		count := strings.Count(word, letter)
+		if count > 1 {
+			return letter
+		}
+	}
+
+	return ""
+}
