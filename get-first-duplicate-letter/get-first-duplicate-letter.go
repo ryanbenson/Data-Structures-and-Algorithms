@@ -2,7 +2,9 @@ package getfirstduplicateletter
 
 import "strings"
 
-func getFirstDuplicateLetter_Map(word string) string {
+// Provides the first letter that is a repeated letter in the word given
+// Underlying: it leverages a map to manage the letters used or not
+func getFirstDuplicateLetterMap(word string) string {
 	letters := strings.Split(word, "")
 
 	letterMap := make(map[string]int)
@@ -19,7 +21,9 @@ func getFirstDuplicateLetter_Map(word string) string {
 	return ""
 }
 
-func getFirstDuplicateLetter_Search(word string) string {
+// Provides the first letter that is a repeated letter in the word given
+// Underlying: It goes through each letter and finds/counts all letters matching
+func getFirstDuplicateLetterSearch(word string) string {
 	letters := strings.Split(word, "")
 
 	for _, letter := range letters {
