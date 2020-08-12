@@ -11,7 +11,7 @@ func isAnagram(str1 string, str2 string) bool {
 	return sortedStr1 == sortedStr2
 }
 
-func isAnagram_StringsManip(str1 string, str2 string) bool {
+func isAnagramStringsManip(str1 string, str2 string) bool {
 	if len(str1) != len(str2) {
 		return false
 	}

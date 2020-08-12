@@ -31,9 +31,9 @@ func TestIsAnagram_Fail(t *testing.T) {
 		t.Errorf("When determing anagram 2, incorrect result given, got: %v, expected: %v", result2, expected)
 	}
 }
-func TestIsAnagram_StringsManip_Success(t *testing.T) {
-	result1 := isAnagram_StringsManip("fried", "fired")
-	result2 := isAnagram_StringsManip("listen", "silent")
+func TestIsAnagramStringsManip_Success(t *testing.T) {
+	result1 := isAnagramStringsManip("fried", "fired")
+	result2 := isAnagramStringsManip("listen", "silent")
 	expected := true
 
 	if result1 != expected {
@@ -45,9 +45,9 @@ func TestIsAnagram_StringsManip_Success(t *testing.T) {
 	}
 }
 
-func TestIsAnagram_StringsManip_Fail(t *testing.T) {
-	result1 := isAnagram_StringsManip("bob", "boo")
-	result2 := isAnagram_StringsManip("hello", "help")
+func TestIsAnagramStringsManip_Fail(t *testing.T) {
+	result1 := isAnagramStringsManip("bob", "boo")
+	result2 := isAnagramStringsManip("hello", "help")
 	expected := false
 
 	if result1 != expected {
@@ -74,8 +74,8 @@ func BenchmarkIsAnagram_SortStrings(b *testing.B) {
 	}
 }
 
-func BenchmarkIsAnagram_StringsManip(b *testing.B) {
+func BenchmarkIsAnagramStringsManip(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		isAnagram_StringsManip("listen", "silent")
+		isAnagramStringsManip("listen", "silent")
 	}
 }

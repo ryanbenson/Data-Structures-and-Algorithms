@@ -2,15 +2,15 @@ package getfirstduplicateletter
 
 import "testing"
 
-func TestGetFirstDuplicateLetter_Map_Success(t *testing.T) {
-	result := getFirstDuplicateLetter_Map("hello")
+func TestGetFirstDuplicateLetterMap_Success(t *testing.T) {
+	result := getFirstDuplicateLetterMap("hello")
 	expected := "l"
 
 	if result != expected {
 		t.Errorf("When the first duplicate letter, incorrect result given, got: %v, expected: %v", result, expected)
 	}
 
-	result2 := getFirstDuplicateLetter_Map("abcdefabc")
+	result2 := getFirstDuplicateLetterMap("abcdefabc")
 	expected2 := "a"
 
 	if result2 != expected2 {
@@ -18,15 +18,15 @@ func TestGetFirstDuplicateLetter_Map_Success(t *testing.T) {
 	}
 }
 
-func TestGetFirstDuplicateLetter_Search_Success(t *testing.T) {
-	result := getFirstDuplicateLetter_Search("hello")
+func TestGetFirstDuplicateLetterSearch_Success(t *testing.T) {
+	result := getFirstDuplicateLetterSearch("hello")
 	expected := "l"
 
 	if result != expected {
 		t.Errorf("When the first duplicate letter, incorrect result given, got: %v, expected: %v", result, expected)
 	}
 
-	result2 := getFirstDuplicateLetter_Search("abcdefabc")
+	result2 := getFirstDuplicateLetterSearch("abcdefabc")
 	expected2 := "a"
 
 	if result2 != expected2 {
@@ -34,14 +34,14 @@ func TestGetFirstDuplicateLetter_Search_Success(t *testing.T) {
 	}
 }
 
-func BenchmarkGetFirstDuplicateLetter_Map(b *testing.B) {
+func BenchmarkGetFirstDuplicateLetterMap(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		getFirstDuplicateLetter_Map("abcdefabc")
+		getFirstDuplicateLetterMap("abcdefabc")
 	}
 }
 
-func BenchmarkGetFirstDuplicateLetter_Search(b *testing.B) {
+func BenchmarkGetFirstDuplicateLetterSearch(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		getFirstDuplicateLetter_Search("abcdefabc")
+		getFirstDuplicateLetterSearch("abcdefabc")
 	}
 }

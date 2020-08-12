@@ -19,6 +19,6 @@ Overall it was pretty simple to determine. Just need to check every letter in ea
 Created a method that manipulates strings as it processes. It goes through each letter, finds the index, and if both strings find the letter, then it removes that letter from the string and continues until there are no more letters in the first string. If they are both empty by the end, then it's a match. It performs dramatically better too.
 
 ```console
-BenchmarkIsAnagram_SortStrings-12     	 1910025	       613 ns/op
-BenchmarkIsAnagram_StringsManip-12    	 7131518	       166 ns/op
+BenchmarkIsAnagramSortStrings-12     	 1910025	       613 ns/op
+BenchmarkIsAnagramStringsManip-12    	 7131518	       166 ns/op
 ```
