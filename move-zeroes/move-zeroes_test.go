@@ -21,3 +21,9 @@ func TestMoveZeroes_Success(t *testing.T) {
 		t.Errorf("When moving zeroes on an array, incorrect result given, got: %v, expected: %v", result, expected)
 	}
 }
+
+func BenchmarkMoveZeroes(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		moveZeroes([]int{1, 2, 3, 0, 4, 5, 0, 6})
+	}
+}
