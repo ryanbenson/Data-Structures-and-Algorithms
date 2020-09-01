@@ -12,3 +12,19 @@ wallet = 3
 ['taco', 'burger']
 ['shawarma']
 ```
+
+## Questions
+
+As I'm working through this, I'm noting the I/O from the example and I'm wondering, should combinations that don't consume all of the wallet be acceptable? Example:
+
+```console
+menu = { 'taco' : 1, 'burger' : 2, 'shawarma' : 3 }
+wallet = 3
+> combo(menu, wallet)
+['taco', 'taco', 'taco']
+['taco', 'burger']
+['burger']
+['shawarma']
+```
+
+Noting the addition of just a `burger`, leaving the wallet with a value of `1`
