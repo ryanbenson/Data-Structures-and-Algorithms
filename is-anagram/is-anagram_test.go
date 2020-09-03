@@ -18,6 +18,15 @@ func TestIsAnagram_Success(t *testing.T) {
 	}
 }
 
+func TestIsAnagram_Empty(t *testing.T) {
+	result1 := isAnagram("", "")
+	expected := true
+
+	if result1 != expected {
+		t.Errorf("When determing anagram, and both strings are empty, incorrect result given, got: %v, expected: %v", result1, expected)
+	}
+}
+
 func TestIsAnagram_Fail(t *testing.T) {
 	result1 := isAnagram("bob", "boo")
 	result2 := isAnagram("hello", "help")
@@ -56,6 +65,15 @@ func TestIsAnagramStringsManip_Fail(t *testing.T) {
 
 	if result2 != expected {
 		t.Errorf("When determing anagram 2, incorrect result given, got: %v, expected: %v", result2, expected)
+	}
+}
+
+func TestIsAnagramStringsManip_Empty(t *testing.T) {
+	result1 := isAnagramStringsManip("", "")
+	expected := true
+
+	if result1 != expected {
+		t.Errorf("When determing anagram, and both strings are empty, incorrect result given, got: %v, expected: %v", result1, expected)
 	}
 }
 
