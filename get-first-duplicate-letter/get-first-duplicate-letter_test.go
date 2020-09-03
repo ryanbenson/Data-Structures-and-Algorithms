@@ -18,6 +18,15 @@ func TestGetFirstDuplicateLetterMap_Success(t *testing.T) {
 	}
 }
 
+func TestGetFirstDuplicateLetterMap_NoDuplicates(t *testing.T) {
+	result := getFirstDuplicateLetterMap("asdfghjkl")
+	expected := ""
+
+	if result != expected {
+		t.Errorf("When the first duplicate letter, and no dupliate letters, incorrect result given, got: %v, expected: %v", result, expected)
+	}
+}
+
 func TestGetFirstDuplicateLetterSearch_Success(t *testing.T) {
 	result := getFirstDuplicateLetterSearch("hello")
 	expected := "l"
@@ -31,6 +40,15 @@ func TestGetFirstDuplicateLetterSearch_Success(t *testing.T) {
 
 	if result2 != expected2 {
 		t.Errorf("When the first duplicate letter (2), incorrect result given, got: %v, expected: %v", result2, expected2)
+	}
+}
+
+func TestGetFirstDuplicateLetterSearch_NoDuplicates(t *testing.T) {
+	result := getFirstDuplicateLetterSearch("asdfghjkl")
+	expected := ""
+
+	if result != expected {
+		t.Errorf("When the first duplicate letter, and no dupliate letters, incorrect result given, got: %v, expected: %v", result, expected)
 	}
 }
 
