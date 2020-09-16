@@ -10,3 +10,11 @@ Example:
 stockBuySell([110, 180, 260, 40, 310, 535, 695])
 “buy on day 4, sell on day 7”
 ```
+
+## Thoughts
+
+Benchmark:
+
+```console
+BenchmarkTestGetDates-12    	 6287911	       178 ns/op
+```
