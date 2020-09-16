@@ -12,3 +12,9 @@ func TestGetDates(t *testing.T) {
 		t.Errorf("When getting a days when to buy and sell, result is not what is expected, got: %v, expected: %v.", result, expected)
 	}
 }
+
+func BenchmarkTestGetDates(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		getDates([]int{110, 180, 260, 40, 310, 535, 695})
+	}
+}
