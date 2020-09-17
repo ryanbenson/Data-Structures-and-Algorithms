@@ -1,4 +1,4 @@
-# Is Anagram
+# Stock Buy Sell
 
 Reference: [cassidoo newsletter](https://cassidoo.co/newsletter/) 🎉 (amazing newsletter by the way)
 
@@ -13,7 +13,7 @@ stockBuySell([110, 180, 260, 40, 310, 535, 695])
 
 ## Thoughts
 
-Benchmark:
+Was a fun exercise, and I kept in mind that it was unnecessary to evaluate the list of days when there's only one day left. Overall, it was thought exercise on how to simplify the comparison and record of what days were optimal while iterating the loop again and again. Overall the performance is pretty good too.
 
 ```console
 BenchmarkTestGetDates-12    	 6287911	       178 ns/op
