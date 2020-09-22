@@ -1,9 +1,12 @@
 package removeleadingzeroes
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
-func TestRemove(t *testing.T) {
-	result := remove([]int{0, 0, 0, 1, 0, 2, 3})
+func TestRemoveSearchList(t *testing.T) {
+	result := removeSearchList([]int{0, 0, 0, 1, 0, 2, 3})
 	expected := []int{1, 0, 2, 3}
 
 	if len(result) != len(expected) {
@@ -11,16 +14,14 @@ func TestRemove(t *testing.T) {
 		return
 	}
 
-	allMatched := true
-	for i, val := range expected {
-		// if any fail, then it will error out
-		if val != result[i] {
-			allMatched = false
-		}
-	}
-	// anything not found? something went wrong
-	if allMatched == false {
+	if reflect.DeepEqual(result, expected) == false {
 		t.Errorf("When removing leading zeroes, incorrect values given, got: %v, expected: %v", result, expected)
 		return
+	}
+}
+
+func BenchmarkRemoveSearchList(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		removeSearchList([]int{0, 0, 0, 1, 0, 2, 3})
 	}
 }
