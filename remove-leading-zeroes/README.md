@@ -10,3 +10,11 @@ Example:
 removeLeading({0, 0, 0, 1, 0, 2, 3})
 > 1 0 2 3 
 ```
+
+# Thoughts
+
+I have a few ideas on implementing this, as it's a simple problem, but you can get creative in how you solve the problem. Some may be more readable than others, but it's interesting to see how they shake out balancing performance and legibility. My first thought was to find the first occurance of an int >= 1, then getting a slice of n to the end of the list. I opted to use the built-in `sort.Search` first, and maybe I'll try a simple for loop after. But the initial results are impressive.
+
+```console
+BenchmarkRemoveSearchList-12    	91502872	        13.0 ns/op
+```
