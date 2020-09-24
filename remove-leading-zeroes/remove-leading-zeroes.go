@@ -23,4 +23,3 @@ func removeForLoop(list []int) []int {
 	}
 	return list[index:len(list)]
 }
-}
