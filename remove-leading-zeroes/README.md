@@ -17,7 +17,10 @@ I have a few ideas on implementing this, as it's a simple problem, but you can g
 
 Interestingly enough, the manual for loop is substantially faster, and it's arguably more readable, even if it's more lines of code.
 
+Thinking of some other creative ways to do this, like building our own array and other flavors. I'll run some benchmarks for them too.
+
 ```console
 BenchmarkRemoveSearchList-12    	91502872	        13.0 ns/op
 BenchmarkRemoveForLoop-12       	289410956	         4.13 ns/op
+BenchmarkRemoveBuildArray-12    	14499169	        79.0 ns/op
 ```

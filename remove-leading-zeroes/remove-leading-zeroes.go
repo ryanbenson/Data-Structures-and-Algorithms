@@ -23,3 +23,18 @@ func removeForLoop(list []int) []int {
 	}
 	return list[index:len(list)]
 }
+
+func removeBuildArray(list []int) []int {
+	var finalArray []int
+	foundFirstValidInt := false
+	for _, num := range list {
+		if num > 0 {
+			foundFirstValidInt = true
+		}
+		if foundFirstValidInt == true {
+			finalArray = append(finalArray, num)
+		}
+	}
+	return finalArray
+
+}
