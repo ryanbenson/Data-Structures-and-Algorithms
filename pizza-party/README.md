@@ -9,3 +9,11 @@ arr = [{ name: Joe, num: 9 }, { name: Cami, num: 3 }, { name: Cassidy, num: 4 }]
 gimmePizza(arr, 8)
 2 // 16 slices needed, pizzas can be sliced into 8 pieces, so 2 pizzas should be ordered
 ```
+
+## Thoughts
+
+Was a fun exercise, and man can Joe really pack it away. I wanted to try to optimize it quickly so the operation can be done effectively, and the trick was a simple loop with some type conversions. Might be able to squeak out more, but could come at a loss of legibility. And it's pretty easy to understand as it is.
+
+```console
+BenchmarkGetPizzaCount-12    	91164912	        13.1 ns/op
+```
