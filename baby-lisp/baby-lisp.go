@@ -1,6 +1,9 @@
 package babylisp
 
-import "errors"
+import (
+	"errors"
+	"fmt"
+)
 
 func process(equation string) (int, error) {
 	if len(equation) == 0 {
@@ -21,6 +24,9 @@ func process(equation string) (int, error) {
 	if string(equation[len(equation)-1]) != closeChar {
 		return 0, errors.New("Invalid end of equation")
 	}
+
+	eq := equation[1 : len(equation)-1]
+	fmt.Println(eq)
 
 	return 0, nil
 }

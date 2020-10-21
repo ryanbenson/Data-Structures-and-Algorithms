@@ -5,10 +5,14 @@ import (
 )
 
 func TestProcess(t *testing.T) {
-	result := process("(add 1 2)")
+	result, err := process("(add 1 2)")
 	expected := 3
 
 	if result != expected {
 		t.Errorf("When processing a calculation, got: %v, want: %v.", result, expected)
+	}
+
+	if err != nil {
+		t.Errorf("When processing a calculation and checking the error, got: %v, want: %v.", err, nil)
 	}
 }
