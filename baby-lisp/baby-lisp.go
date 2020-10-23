@@ -3,6 +3,7 @@ package babylisp
 import (
 	"errors"
 	"fmt"
+	"strings"
 )
 
 func process(equation string) (int, error) {
@@ -26,7 +27,8 @@ func process(equation string) (int, error) {
 	}
 
 	eq := equation[1 : len(equation)-1]
-	fmt.Println(eq)
+	elements := strings.Fields(eq)
+	fmt.Println(elements)
 
 	return 0, nil
 }
