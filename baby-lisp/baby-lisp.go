@@ -6,6 +6,8 @@ import (
 	"strings"
 )
 
+var operations = []string{"add", "subtract", "multiply", "divide"}
+
 func process(equation string) (int, error) {
 	if len(equation) == 0 {
 		return 0, nil
@@ -30,5 +32,19 @@ func process(equation string) (int, error) {
 	elements := strings.Fields(eq)
 	fmt.Println(elements)
 
+	operand := elements[0]
+	if isValidOperand(operand, operations) == false {
+		return 0, errors.New("Invalid operand")
+	}
+
 	return 0, nil
+}
+
+func isValidOperand(operand string, operations []string) bool {
+	for _, validOperand := range operations {
+		if validOperand == operand {
+			return true
+		}
+	}
+	return false
 }
