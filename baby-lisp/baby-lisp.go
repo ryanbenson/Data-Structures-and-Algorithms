@@ -2,7 +2,7 @@ package babylisp
 
 import (
 	"errors"
-	"fmt"
+	"strconv"
 	"strings"
 )
 
@@ -30,14 +30,39 @@ func process(equation string) (int, error) {
 
 	eq := equation[1 : len(equation)-1]
 	elements := strings.Fields(eq)
-	fmt.Println(elements)
+
+	if len(elements) != 3 {
+		return 0, errors.New("Invalid number of equation elements")
+	}
 
 	operand := elements[0]
 	if isValidOperand(operand, operations) == false {
 		return 0, errors.New("Invalid operand")
 	}
 
-	return 0, nil
+	result := 0
+
+	x, err := strconv.Atoi(elements[1])
+	y, err := strconv.Atoi(elements[2])
+
+	if err != nil {
+		return 0, errors.New("Invalid numbers provided")
+	}
+
+	if operand == operations[0] {
+		result = x + y
+	}
+	if operand == operations[1] {
+		result = x - y
+	}
+	if operand == operations[2] {
+		result = x * y
+	}
+	if operand == operations[3] {
+		result = x / y
+	}
+
+	return result, nil
 }
 
 func isValidOperand(operand string, operations []string) bool {
