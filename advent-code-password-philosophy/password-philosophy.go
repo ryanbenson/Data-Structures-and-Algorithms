@@ -6,6 +6,8 @@ import (
 	"strings"
 )
 
+// Determines how many passwords are valid given a list
+// of passwords with their way to validate them
 func passwordsValidNum(passwords []string) int {
 	validCount := 0
 
@@ -19,6 +21,9 @@ func passwordsValidNum(passwords []string) int {
 	return validCount
 }
 
+// Determines if a single password is valid or not
+// example: 1-3 x: abcxyz = valid (1-3 instances of x in the passphrase)
+// example: 4-12 y: abcxyz = invalid, only one y
 func isValidPassword(password string) bool {
 	re := regexp.MustCompile(`([\d]+)-([\d]+)[\s]([a-z]):\s([a-z]+)`)
 	m := re.FindSubmatch([]byte(password))
