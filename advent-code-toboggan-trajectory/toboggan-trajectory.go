@@ -22,7 +22,7 @@ func findTrees(mapContent string) int {
 		curLinePos = curLinePos + right
 		// if we reach the end of the right side of the map
 		// then get the remainder and restart since it repeats
-		if curLinePos > lineLimit {
+		if curLinePos >= lineLimit {
 			curLinePos = curLinePos - lineLimit
 		}
 
