@@ -2,6 +2,7 @@ package passportprocessing
 
 import (
 	"regexp"
+	"strconv"
 	"strings"
 )
 
@@ -21,19 +22,18 @@ func process(passports string) int {
 func isValidPassport(passport string) bool {
 	re := regexp.MustCompile(`[\s]+`)
 	passportPieces := re.Split(passport, -1)
-	keys := getKeys(passportPieces)
-	isValid := hasValidKeys(keys)
+	pieces := getKeyValues(passportPieces)
+	isValid := hasValidKeys(pieces)
 	return isValid
 }
 
-func getKeys(passportPieces []string) []string {
-	keys := []string{}
+func getKeyValues(passportPieces []string) [][]string {
+	allPieces := [][]string{}
 	for _, piece := range passportPieces {
 		pieces := strings.Split(piece, ":")
-		key := pieces[0]
-		keys = append(keys, key)
+		allPieces = append(allPieces, pieces)
 	}
-	return keys
+	return allPieces
 }
 
 // Pieces of a passport. All fields are requied except cid
@@ -45,7 +45,7 @@ func getKeys(passportPieces []string) []string {
 // ecl (Eye Color)
 // pid (Passport ID)
 // cid (Country ID)
-func hasValidKeys(keys []string) bool {
+func hasValidKeys(pieces [][]string) bool {
 	hasByr := false
 	hasIyr := false
 	hasEyr := false
@@ -53,26 +53,26 @@ func hasValidKeys(keys []string) bool {
 	hasHcl := false
 	hasEcl := false
 	hasPid := false
-	for _, key := range keys {
-		if key == "byr" {
-			hasByr = true
+	for _, piece := range pieces {
+		if piece[0] == "byr" {
+			hasByr = isValidByr(piece[1])
 		}
-		if key == "iyr" {
-			hasIyr = true
+		if piece[0] == "iyr" {
+			hasIyr = isValidIyr(piece[1])
 		}
-		if key == "eyr" {
-			hasEyr = true
+		if piece[0] == "eyr" {
+			hasIyr = isValidEyr(piece[1])
 		}
-		if key == "hgt" {
+		if piece[0] == "hgt" {
 			hasHgt = true
 		}
-		if key == "hcl" {
+		if piece[0] == "hcl" {
 			hasHcl = true
 		}
-		if key == "ecl" {
+		if piece[0] == "ecl" {
 			hasEcl = true
 		}
-		if key == "pid" {
+		if piece[0] == "pid" {
 			hasPid = true
 		}
 	}
@@ -80,4 +80,28 @@ func hasValidKeys(keys []string) bool {
 		return false
 	}
 	return true
+}
+
+func isValidByr(yearString string) bool {
+	year, _ := strconv.Atoi(yearString)
+	if year >= 1920 && year <= 2002 {
+		return true
+	}
+	return false
+}
+
+func isValidIyr(yearString string) bool {
+	year, _ := strconv.Atoi(yearString)
+	if year >= 2010 && year <= 2020 {
+		return true
+	}
+	return false
+}
+
+func isValidEyr(yearString string) bool {
+	year, _ := strconv.Atoi(yearString)
+	if year >= 2020 && year <= 2030 {
+		return true
+	}
+	return false
 }
