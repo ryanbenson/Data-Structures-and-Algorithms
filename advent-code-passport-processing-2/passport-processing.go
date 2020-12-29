@@ -64,7 +64,7 @@ func hasValidKeys(pieces [][]string) bool {
 			hasIyr = isValidEyr(piece[1])
 		}
 		if piece[0] == "hgt" {
-			hasHgt = true
+			hasHgt = isValidHgt(piece[1])
 		}
 		if piece[0] == "hcl" {
 			hasHcl = true
@@ -103,5 +103,24 @@ func isValidEyr(yearString string) bool {
 	if year >= 2020 && year <= 2030 {
 		return true
 	}
+	return false
+}
+
+func isValidHgt(height string) bool {
+	// last two chars should be the measurement type
+	measurementType := height[len(height)-2:]
+	measurementValue := height[0 : len(height)-2]
+	value, _ := strconv.Atoi(measurementValue)
+	if measurementType == "in" {
+		if value >= 59 && value <= 76 {
+			return true
+		}
+	}
+	if measurementType == "cm" {
+		if value >= 150 && value <= 193 {
+			return true
+		}
+	}
+	// if it's not inches or centimeters, it's invalid
 	return false
 }
