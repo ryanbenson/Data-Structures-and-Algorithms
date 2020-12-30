@@ -67,7 +67,7 @@ func hasValidKeys(pieces [][]string) bool {
 			hasHgt = isValidHgt(piece[1])
 		}
 		if piece[0] == "hcl" {
-			hasHcl = true
+			hasHcl = isValidHcl(piece[1])
 		}
 		if piece[0] == "ecl" {
 			hasEcl = true
@@ -123,4 +123,10 @@ func isValidHgt(height string) bool {
 	}
 	// if it's not inches or centimeters, it's invalid
 	return false
+}
+
+func isValidHcl(color string) bool {
+	// must start with #, and followed by 0-9, a-f
+	re := regexp.MustCompile("#[0-9a-f]+")
+	return re.MatchString(color)
 }
