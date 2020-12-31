@@ -70,7 +70,7 @@ func hasValidKeys(pieces [][]string) bool {
 			hasHcl = isValidHcl(piece[1])
 		}
 		if piece[0] == "ecl" {
-			hasEcl = true
+			hasEcl = isValidEcl(piece[1])
 		}
 		if piece[0] == "pid" {
 			hasPid = true
@@ -129,4 +129,15 @@ func isValidHcl(color string) bool {
 	// must start with #, and followed by 0-9, a-f
 	re := regexp.MustCompile("#[0-9a-f]+")
 	return re.MatchString(color)
+}
+
+func isValidEcl(color string) bool {
+	// must be one of:
+	validOptions := []string{"amb", "blu", "brn", "gry", "grn", "hzl", "oth"}
+	for _, option := range validOptions {
+		if option == color {
+			return true
+		}
+	}
+	return false
 }
