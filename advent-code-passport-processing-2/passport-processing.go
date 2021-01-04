@@ -73,7 +73,7 @@ func hasValidKeys(pieces [][]string) bool {
 			hasEcl = isValidEcl(piece[1])
 		}
 		if piece[0] == "pid" {
-			hasPid = true
+			hasPid = isValidPid(piece[1])
 		}
 	}
 	if hasByr == false || hasIyr == false || hasEyr == false || hasHgt == false || hasHcl == false || hasEcl == false || hasPid == false {
@@ -140,4 +140,10 @@ func isValidEcl(color string) bool {
 		}
 	}
 	return false
+}
+
+func isValidPid(id string) bool {
+	// a nine digit number, 0-9
+	re := regexp.MustCompile("^[0-9]{9}$")
+	return re.MatchString(id)
 }
