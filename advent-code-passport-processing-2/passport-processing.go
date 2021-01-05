@@ -6,6 +6,8 @@ import (
 	"strings"
 )
 
+// Processes a long list of passports to determine how many
+// in the list are valid
 func process(passports string) int {
 	validPasswordsNum := 0
 
@@ -19,6 +21,7 @@ func process(passports string) int {
 	return validPasswordsNum
 }
 
+// Determines if a single passport is valid or not
 func isValidPassport(passport string) bool {
 	re := regexp.MustCompile(`[\s]+`)
 	passportPieces := re.Split(passport, -1)
@@ -27,6 +30,8 @@ func isValidPassport(passport string) bool {
 	return isValid
 }
 
+// Gets the key / values of the passport so each key/value
+// can be validated
 func getKeyValues(passportPieces []string) [][]string {
 	allPieces := [][]string{}
 	for _, piece := range passportPieces {
@@ -82,6 +87,7 @@ func hasValidKeys(pieces [][]string) bool {
 	return true
 }
 
+// Determines if a birth year is valid
 func isValidByr(yearString string) bool {
 	year, _ := strconv.Atoi(yearString)
 	if year >= 1920 && year <= 2002 {
@@ -90,6 +96,7 @@ func isValidByr(yearString string) bool {
 	return false
 }
 
+// Determines if an issue year is valid
 func isValidIyr(yearString string) bool {
 	year, _ := strconv.Atoi(yearString)
 	if year >= 2010 && year <= 2020 {
@@ -98,6 +105,7 @@ func isValidIyr(yearString string) bool {
 	return false
 }
 
+// Determines if a expiration year is valid
 func isValidEyr(yearString string) bool {
 	year, _ := strconv.Atoi(yearString)
 	if year >= 2020 && year <= 2030 {
@@ -106,6 +114,8 @@ func isValidEyr(yearString string) bool {
 	return false
 }
 
+// Determines if a height is valid
+// Supports inches and centimeters
 func isValidHgt(height string) bool {
 	// last two chars should be the measurement type
 	measurementType := height[len(height)-2:]
@@ -125,12 +135,14 @@ func isValidHgt(height string) bool {
 	return false
 }
 
+// Determines if a hair color is valid
 func isValidHcl(color string) bool {
 	// must start with #, and followed by 0-9, a-f
 	re := regexp.MustCompile("#[0-9a-f]+")
 	return re.MatchString(color)
 }
 
+// Determines if a eye color is valid
 func isValidEcl(color string) bool {
 	// must be one of:
 	validOptions := []string{"amb", "blu", "brn", "gry", "grn", "hzl", "oth"}
@@ -142,6 +154,7 @@ func isValidEcl(color string) bool {
 	return false
 }
 
+// Determines if a Passport ID is valid
 func isValidPid(id string) bool {
 	// a nine digit number, 0-9
 	re := regexp.MustCompile("^[0-9]{9}$")
