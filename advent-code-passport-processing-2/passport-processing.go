@@ -66,7 +66,7 @@ func hasValidKeys(pieces [][]string) bool {
 			hasIyr = isValidIyr(piece[1])
 		}
 		if piece[0] == "eyr" {
-			hasIyr = isValidEyr(piece[1])
+			hasEyr = isValidEyr(piece[1])
 		}
 		if piece[0] == "hgt" {
 			hasHgt = isValidHgt(piece[1])
