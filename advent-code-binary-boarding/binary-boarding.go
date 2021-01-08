@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// Returns the max id amongs a list of passes
 func getMaxId(passes string) int {
 	maxId := 0
 	passList := strings.Split(passes, "\n")
@@ -17,6 +18,7 @@ func getMaxId(passes string) int {
 	return maxId
 }
 
+// Gets the seat data for a specific pass
 func getSeat(pass string) (int, int, int) {
 	// totalRows := 128 // 0-127
 	letters := strings.Split(pass, "")
