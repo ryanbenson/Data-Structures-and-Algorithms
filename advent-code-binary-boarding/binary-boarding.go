@@ -11,6 +11,8 @@ func getMaxId(passes string) int {
 	passList := strings.Split(passes, "\n")
 	for _, pass := range passList {
 		row, column, id := getSeat(pass)
+		fmt.Println(row)
+		fmt.Println(column)
 		if id > maxId {
 			maxId = id
 		}
@@ -20,7 +22,9 @@ func getMaxId(passes string) int {
 
 // Gets the seat data for a specific pass
 func getSeat(pass string) (int, int, int) {
-	// totalRows := 128 // 0-127
+	frontToBack := pass[0:7]
+	leftToRight := pass[7:10]
+	fmt.Println(frontToBack, leftToRight)
 	letters := strings.Split(pass, "")
 	for _, letter := range letters {
 		fmt.Println(letter)
