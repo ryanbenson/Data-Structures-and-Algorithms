@@ -24,10 +24,27 @@ func getMaxId(passes string) int {
 func getSeat(pass string) (int, int, int) {
 	frontToBack := pass[0:7]
 	leftToRight := pass[7:10]
-	fmt.Println(frontToBack, leftToRight)
-	letters := strings.Split(pass, "")
-	for _, letter := range letters {
+
+	row := getRow(frontToBack)
+	column := getColumn(leftToRight)
+	num := getNum(row, column)
+	return row, column, num
+}
+
+func getRow(letters string) int {
+	// limit := 127
+	list := strings.Split(letters, "")
+	for _, letter := range list {
 		fmt.Println(letter)
 	}
-	return 0, 0, 0
+	return 0
+}
+
+func getColumn(letters string) int {
+	// limit := 7
+	return 0
+}
+
+func getNum(row int, column int) int {
+	return row*8 + column
 }
