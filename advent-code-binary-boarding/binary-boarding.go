@@ -2,6 +2,7 @@ package binaryboarding
 
 import (
 	"fmt"
+	"math"
 	"strings"
 )
 
@@ -32,17 +33,47 @@ func getSeat(pass string) (int, int, int) {
 }
 
 func getRow(letters string) int {
-	// limit := 127
+	start := 0.0
+	end := 127.0
+	num := 0.0
 	list := strings.Split(letters, "")
-	for _, letter := range list {
-		fmt.Println(letter)
+	for i, letter := range list {
+		if letter == "F" {
+			if i == 6 {
+				num = start
+			}
+			end = math.Floor((start + end) / 2)
+		}
+		if letter == "B" {
+			if i == 6 {
+				num = end
+			}
+			start = math.Ceil((start + end) / 2)
+		}
 	}
-	return 0
+	return int(num)
 }
 
 func getColumn(letters string) int {
-	// limit := 7
-	return 0
+	start := 0.0
+	end := 7.0
+	num := 0.0
+	list := strings.Split(letters, "")
+	for i, letter := range list {
+		if letter == "L" {
+			if i == 2 {
+				num = start
+			}
+			end = math.Floor((start + end) / 2)
+		}
+		if letter == "R" {
+			if i == 2 {
+				num = end
+			}
+			start = math.Ceil((start + end) / 2)
+		}
+	}
+	return int(num)
 }
 
 func getNum(row int, column int) int {
