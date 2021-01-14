@@ -32,6 +32,7 @@ func getSeat(pass string) (int, int, int) {
 	return row, column, num
 }
 
+// Gets the row based on the letter sequence provided
 func getRow(letters string) int {
 	start := 0.0
 	end := 127.0
@@ -54,6 +55,7 @@ func getRow(letters string) int {
 	return int(num)
 }
 
+// Gets the column based on the letter sequence provided
 func getColumn(letters string) int {
 	start := 0.0
 	end := 7.0
@@ -76,6 +78,7 @@ func getColumn(letters string) int {
 	return int(num)
 }
 
+// Gets the number of the seat
 func getNum(row int, column int) int {
 	return row*8 + column
 }
