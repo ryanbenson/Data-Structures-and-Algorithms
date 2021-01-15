@@ -1,7 +1,6 @@
 package binaryboarding
 
 import (
-	"fmt"
 	"math"
 	"strings"
 )
@@ -11,9 +10,7 @@ func getMaxId(passes string) int {
 	maxId := 0
 	passList := strings.Split(passes, "\n")
 	for _, pass := range passList {
-		row, column, id := getSeat(pass)
-		fmt.Println(row)
-		fmt.Println(column)
+		_, _, id := getSeat(pass)
 		if id > maxId {
 			maxId = id
 		}
