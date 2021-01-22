@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-// Returns the max id amongs a list of passes
+// Returns the max id among a list of passes
 func getMaxId(passes string) int {
 	maxId := 0
 	passList := strings.Split(passes, "\n")
