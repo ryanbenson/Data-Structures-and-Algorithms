@@ -6,16 +6,16 @@ import (
 )
 
 // Returns the max id among a list of passes
-func getMaxId(passes string) int {
-	maxId := 0
+func getMaxID(passes string) int {
+	maxID := 0
 	passList := strings.Split(passes, "\n")
 	for _, pass := range passList {
 		_, _, id := getSeat(pass)
-		if id > maxId {
-			maxId = id
+		if id > maxID {
+			maxID = id
 		}
 	}
-	return maxId
+	return maxID
 }
 
 // Gets the seat data for a specific pass

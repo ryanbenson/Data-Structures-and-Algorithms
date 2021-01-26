@@ -4,11 +4,11 @@ import (
 	"testing"
 )
 
-func TestGetMaxIdExample(t *testing.T) {
+func TestGetMaxIDExample(t *testing.T) {
 	passes := `BFFFBBFRRR
 FFFBBBFRRR
 BBFFBBFRLL`
-	result := getMaxId(passes)
+	result := getMaxID(passes)
 	expected := 820
 
 	if result != expected {
@@ -16,7 +16,7 @@ BBFFBBFRLL`
 	}
 }
 
-func TestGetMaxIdExercise(t *testing.T) {
+func TestGetMaxIDExercise(t *testing.T) {
 	passes := `BFFFFFFRLL
 FFBFBBBRLL
 FBBFBFBRLR
@@ -985,7 +985,7 @@ BBFBFFBRRL
 FFFFFFBLLL
 BFBBBFBRLR
 BFFFBFFLLL`
-	result := getMaxId(passes)
+	result := getMaxID(passes)
 	expected := 976
 
 	if result != expected {
