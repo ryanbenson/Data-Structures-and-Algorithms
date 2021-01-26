@@ -5,6 +5,18 @@ import (
 	"strings"
 )
 
+// func getSeat(passesList []int) int {
+// 	return 0
+// }
+
+func getAvailableSeats(max int) []int {
+	seats := []int{}
+	for i := 0; i <= max; i++ {
+		seats = append(seats, i)
+	}
+	return seats
+}
+
 // Returns the max id among a list of passes
 func getMaxID(passes string) int {
 	maxID := 0

@@ -4,6 +4,16 @@ import (
 	"testing"
 )
 
+func TestGetAvailableSeats(t *testing.T) {
+	max := 5
+	expected := []int{0, 1, 2, 3, 4, 5}
+	result := getAvailableSeats(max)
+
+	if len(result) != len(expected) {
+		t.Errorf("When getting all possible seats, looking at how length, got: %v, want: %v.", result, expected)
+	}
+}
+
 func TestGetMaxIDExample(t *testing.T) {
 	passes := `BFFFBBFRRR
 FFFBBBFRRR
