@@ -1,14 +1,19 @@
 package binaryboarding
 
 import (
+	"fmt"
 	"math"
 	"strings"
 )
 
-// func getSeat(passesList []int) int {
-// 	return 0
-// }
+func find(passes string) int {
+	maxID := getMaxID(passes)
+	availableSeats := getAvailableSeats(maxID)
+	fmt.Println(availableSeats)
+	return 0
+}
 
+// Returns the list of all available seatas
 func getAvailableSeats(max int) []int {
 	seats := []int{}
 	for i := 0; i <= max; i++ {
