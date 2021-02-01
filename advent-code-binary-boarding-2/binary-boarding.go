@@ -1,7 +1,6 @@
 package binaryboarding
 
 import (
-	"fmt"
 	"math"
 	"strings"
 )
@@ -9,14 +8,32 @@ import (
 func find(passes string) int {
 	maxID := getMaxID(passes)
 	availableSeats := getAvailableSeats(maxID)
-	fmt.Println(availableSeats)
-	return 0
+	passList := strings.Split(passes, "\n")
+	for _, pass := range passList {
+		_, _, id := getSeat(pass)
+		availableSeats = removeAvailableSeat(availableSeats, id)
+	}
+	return availableSeats[0]
+}
+
+func removeAvailableSeat(seats []int, seat int) []int {
+	matchedIndex := 0
+	for i, v := range seats {
+		if seat == v {
+			matchedIndex = i
+			break
+		}
+	}
+	ret := make([]int, 0)
+	ret = append(ret, seats[:matchedIndex]...)
+	return append(ret, seats[matchedIndex+1:]...)
 }
 
 // Returns the list of all available seatas
 func getAvailableSeats(max int) []int {
 	seats := []int{}
-	for i := 0; i <= max; i++ {
+	// ignore the first set, 0-7
+	for i := 7; i < max; i++ {
 		seats = append(seats, i)
 	}
 	return seats
