@@ -5,19 +5,25 @@ import (
 	"strings"
 )
 
-func sum(questions string) int {
-	rows := getRows(questions)
+func sum(answers string) int {
+	rows := getRows(answers)
 	for _, row := range rows {
-		rowAnswers := getRowAnswers(row)
-		fmt.Println(rowAnswers)
+		_ = getUniqueAnswers(row)
 	}
 	return 0
 }
 
-func getRows(questions string) []string {
-	return strings.Split(questions, "\n\n")
+func getRows(answers string) []string {
+	return strings.Split(answers, "\n\n")
 }
 
 func getRowAnswers(row string) []string {
 	return strings.Split(row, "\n")
+}
+
+func getUniqueAnswers(row string) []string {
+	rowAnswers := getRowAnswers(row)
+	fmt.Println(rowAnswers)
+	fmt.Println("======")
+	return []string{}
 }
