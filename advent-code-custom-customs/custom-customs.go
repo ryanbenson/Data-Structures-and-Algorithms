@@ -17,8 +17,11 @@ func getRows(answers string) []string {
 	return strings.Split(answers, "\n\n")
 }
 
-func getRowAnswers(row string) []string {
-	return strings.Split(row, "\n")
+func getUniqueRowAnswers(row string) string {
+	arr := strings.Split(row, "\n")
+	// to do: make letter map
+	// check each letter, filter our duplicates
+	return arr
 }
 
 func getUniqueAnswers(row string) []string {
