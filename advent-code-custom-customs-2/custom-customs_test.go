@@ -5,7 +5,7 @@ import (
 )
 
 func TestSumSample(t *testing.T) {
-	expected := 11
+	expected := 6
 	input := `abc
 
 a
@@ -25,7 +25,7 @@ b`
 	result := sum(input)
 
 	if result != expected {
-		t.Errorf("When getting custom customs, looking at sum, got: %v, want: %v.", result, expected)
+		t.Errorf("When getting custom customs where all rows answered the same, looking at sum, got: %v, want: %v.", result, expected)
 	}
 }
 
