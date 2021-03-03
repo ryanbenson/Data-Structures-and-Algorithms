@@ -1,6 +1,7 @@
 package customcustoms
 
 import (
+	"fmt"
 	"strings"
 )
 
@@ -18,7 +19,7 @@ func getRows(answers string) []string {
 	return strings.Split(answers, "\n\n")
 }
 
-func getUniqueRowAnswers(row string) string {
+func getRowAnswersMap(row string) map[string]int {
 	arr := strings.Split(row, "\n")
 	letterMap := make(map[string]int)
 	allAnswers := ""
@@ -28,17 +29,30 @@ func getUniqueRowAnswers(row string) string {
 	uniqueAnswers := ""
 
 	for _, letter := range allAnswers {
-		_, ok := letterMap[string(letter)]
+		num, ok := letterMap[string(letter)]
 		if ok {
+			letterMap[string(letter)] = num + 1
 			continue
+		} else {
+			letterMap[string(letter)] = 1
 		}
-		letterMap[string(letter)] = 1
 		uniqueAnswers = uniqueAnswers + string(letter)
 	}
-	return uniqueAnswers
+	return letterMap
+}
+
+func getNumberOfPeopleInRow(row string) int {
+	arr := strings.Split(row, "\n")
+	return len(arr)
 }
 
 func getUniqueAnswersCount(row string) int {
-	rowAnswers := getUniqueRowAnswers(row)
-	return len(rowAnswers)
+	m := getRowAnswersMap(row)
+	peopleInRow := getNumberOfPeopleInRow(row)
+	fmt.Println(peopleInRow)
+	fmt.Println(m)
+	// to do, go through the map, and see which letters have
+	// every person in the row answering that question
+	// add up all of the letters that have the letter == peopleInRow
+	return 1
 }
