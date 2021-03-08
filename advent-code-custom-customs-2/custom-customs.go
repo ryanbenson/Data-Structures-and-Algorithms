@@ -1,7 +1,6 @@
 package customcustoms
 
 import (
-	"fmt"
 	"strings"
 )
 
@@ -49,10 +48,14 @@ func getNumberOfPeopleInRow(row string) int {
 func getUniqueAnswersCount(row string) int {
 	m := getRowAnswersMap(row)
 	peopleInRow := getNumberOfPeopleInRow(row)
-	fmt.Println(peopleInRow)
-	fmt.Println(m)
-	// to do, go through the map, and see which letters have
+	// Go through the map, and see which letters have
 	// every person in the row answering that question
 	// add up all of the letters that have the letter == peopleInRow
-	return 1
+	count := 0
+	for _, letter := range m {
+		if letter == peopleInRow {
+			count = count + 1
+		}
+	}
+	return count
 }

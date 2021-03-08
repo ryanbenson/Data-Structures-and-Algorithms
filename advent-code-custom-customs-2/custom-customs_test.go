@@ -30,7 +30,7 @@ b`
 }
 
 func TestSum(t *testing.T) {
-	expected := 6799
+	expected := 3354
 	input := `fekdcbayqxnwvh
 fycwqktvxandeb
 kqbafvcxyewrdn
