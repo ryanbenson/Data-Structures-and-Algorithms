@@ -20,5 +20,5 @@ Most of everything will be found in sub directories here. There should be a read
 Some exercises may have benchmarks. To run those:
 
 ```console
-go test ./... -bench=.
+go test ./... -bench .
 ```
