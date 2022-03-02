@@ -16,4 +16,5 @@ func findRectSize(x int, y int) (string, int) {
 	// go through the row to find the last 1
 	// return the size in a string (e.g. "2x2")
 	// also return the full size (e.g. 4)
+	return "2x2", 4
 }
