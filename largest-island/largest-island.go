@@ -50,6 +50,10 @@ func findRectSize(x int, y int, islands [][]int) (string, int) {
 			break;
 		}
 	}
+	// ensure the last corner exists
+	if islands[maxY-1][maxX-1] != 1 {
+		return "", 0
+	}
 	dimensions := strconv.Itoa(maxX) + "x" + strconv.Itoa(maxY)
 	size := maxX * maxY
 	// return the size in a string (e.g. "2x2")
