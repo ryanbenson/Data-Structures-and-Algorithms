@@ -5,7 +5,7 @@ import (
 )
 
 // largestRect finds the largest rectangle island
-// assumes a rect must be 2x2 or greater, so no 1x2 / 2x1
+// assumes rectangles are filled
 func largestRect(islands [][]int) string {
 	biggestIslandDimensions := ""
 	biggestIslandSize := 0
@@ -15,7 +15,7 @@ func largestRect(islands [][]int) string {
 			// see if the next item in the row is a 1
 			if cell == 1 && k+1 < len(row) && row[k+1] == 1 {
 				// find the size given the coords
-				dimensions, size := findRectSize(i, k, islands)
+				dimensions, size := findRectSize(k, i, islands)
 				if size > biggestIslandSize {
 					biggestIslandDimensions = dimensions
 					biggestIslandSize = size
@@ -27,18 +27,15 @@ func largestRect(islands [][]int) string {
 	return biggestIslandDimensions
 }
 
-// going to assume no weird shaped rects like:
-// 1,1,1
-// 1,1,0
 func findRectSize(x int, y int, islands [][]int) (string, int) {
 	maxX := 0
 	maxY := 0
 	// go through the column to find the last 1
 	for i := y; i < len(islands); i++ {
-		if islands[i][y] == 1 {
-			maxY = i+1
+		if islands[i][x] == 1 {
+			maxY++
 		}
-		if islands[i][y] == 0 {
+		if islands[i][x] == 0 {
 			break
 		}
 	}
@@ -47,7 +44,7 @@ func findRectSize(x int, y int, islands [][]int) (string, int) {
 	rowToCheck := islands[y]
 	for k := x; k < len(rowToCheck); k++ {
 		if rowToCheck[k] == 1 {
-			maxX = k+1
+			maxX++
 		}
 		if rowToCheck[k] == 0 {
 			break;
