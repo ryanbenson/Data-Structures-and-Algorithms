@@ -6,6 +6,8 @@ import (
 
 // largestRect finds the largest rectangle island
 // assumes rectangles are filled
+// islands are declared by {int} 1, otherwise {int} 0
+// the dimensions of the largest island will be provided
 func largestRect(islands [][]int) string {
 	biggestIslandDimensions := ""
 	biggestIslandSize := 0
@@ -27,6 +29,15 @@ func largestRect(islands [][]int) string {
 	return biggestIslandDimensions
 }
 
+// finds the rectangle size of a given start point (x, y)
+// assumption:
+// going to assume no cut out shapes
+// 1,1,1
+// 1,1,0
+// also no donuts
+// 1,1,1
+// 1,0,1
+// 1,1,1
 func findRectSize(x int, y int, islands [][]int) (string, int) {
 	maxX := 0
 	maxY := 0

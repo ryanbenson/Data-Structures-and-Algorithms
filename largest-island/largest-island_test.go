@@ -82,3 +82,18 @@ func BenchmarkLargestRect(b *testing.B) {
 		_ = largestRect(arr)
 	}
 }
+
+func BenchmarkLargestRectLargeMap(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		arr := [][]int{
+			{0,0,0,1,0,1,1,1},
+			{1,1,0,0,0,1,1,1},
+			{1,1,0,0,0,1,1,1},
+			{0,0,1,0,0,1,1,1},
+			{0,0,1,0,0,1,1,1},
+			{0,0,1,0,0,0,0,0},
+			{0,0,1,0,0,0,0,0},
+		}
+		_ = largestRect(arr)
+	}
+}
