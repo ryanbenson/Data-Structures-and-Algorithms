@@ -15,3 +15,7 @@ $ 5 // 36, 35, 33, 34, 37
 ## Thoughts
 
 TBD
+
+```console
+BenchmarkLargestRect-12    	 4547612	       259 ns/op
+```
