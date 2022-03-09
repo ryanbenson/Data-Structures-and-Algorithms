@@ -21,5 +21,5 @@ I also realized that I could shorten the processing time by short circuiting if 
 Overall the solution runs very fast:
 
 ```console
-BenchmarkLargestRect-12         1000000000               0.2760 ns/op
+BenchmarkLargestRect-12          4700745               277.6 ns/op
 ```
