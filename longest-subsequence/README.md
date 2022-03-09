@@ -14,4 +14,12 @@ $ 5 // 36, 35, 33, 34, 37
 
 ## Thoughts
 
-TBD
+This was an interesting one. A quick way to make this easier was to sort the main sequence. That makes it where we can check the sibling value for the next possible sub sequence. Otherwise we would need to do something extra like re-looping through the values to find a sibling, which would be wasteful for time.
+
+I also realized that I could shorten the processing time by short circuiting if we have a sequence that's longer than what's leftover in the array. Example, if the current longest subsequence stopped at 8, and we now need to find a new one, but there's only 3 items left in the array, then there's no reason to keep trying because it won't ever find a new longest subsequence, so might as well short circuit.
+
+Overall the solution runs very fast:
+
+```console
+BenchmarkLargestRect-12         1000000000               0.2760 ns/op
+```
