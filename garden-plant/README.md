@@ -15,4 +15,8 @@ $ false // there are only 3 plots, and two of them can't be planted on
 
 ## Thoughts
 
-TBD
+
+
+```console
+BenchmarkCanPlantLong-12        37452481                30.61 ns/op
+```
