@@ -22,7 +22,7 @@ This was fun! And it was more complicated than it appears on the surface. And th
 
 Overall, it was a fun thought experiment and had me thinking different ways to approach the problem. There are some edge cases that seem interesting too that I might pursue later (e.g. unfinished rectangles and donuts)
 
-```
+```javascript
 // unfinished island
 let islands = [
     [0,0,0,1,0]
@@ -44,12 +44,12 @@ But the acceptance criteria was around filled rectangles, so I'll leave it at th
 
 Overall it runs pretty fast though, though the time scale seems to increase as the map size expands, which is something to consider in terms of optimization.
 
-```
+```console
 BenchmarkLargestRect-12                 15627930                75.24 ns/op
 BenchmarkLargestRectLargeMap-12          3670162               332.8 ns/op
 ```
 
 Some ideas to improve performance:
 
-* After finding the island size, essentially block off / delete those coordinates from the map so you don't evaluate them
-* If you find a large island, and you reach the end of a part of the map where it's not possible to find a larger island, then it can short circuit
+*   After finding the island size, essentially block off / delete those coordinates from the map so you don't evaluate them
+*   If you find a large island, and you reach the end of a part of the map where it's not possible to find a larger island, then it can short circuit
