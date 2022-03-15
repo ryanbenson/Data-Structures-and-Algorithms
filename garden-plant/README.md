@@ -15,6 +15,8 @@ $ false // there are only 3 plots, and two of them can't be planted on
 
 ## Thoughts
 
+This was a curious problem to solve to ensure that you would maintain space around the plants at all times, while processing everything. A few flavors of how to approach this came up, but I think the one I ended up with is simple and very efficient. It was also fun because I love gardening!
+
 ```console
 BenchmarkCanPlantLong-12        37452481                30.61 ns/op
 ```
