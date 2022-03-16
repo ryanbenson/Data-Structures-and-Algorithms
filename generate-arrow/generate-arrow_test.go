@@ -6,7 +6,7 @@ import (
 
 func TestPrintArrow(t *testing.T) {
 	size := 3
-	direction := "left"
+	direction := "right"
 	result := printArrow(direction, size)
 	expected := `*
   *
