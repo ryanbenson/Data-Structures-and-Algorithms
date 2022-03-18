@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestPrintArrow(t *testing.T) {
+func TestPrintArrowRight(t *testing.T) {
 	size := 3
 	direction := "right"
 	result := printArrow(direction, size)
@@ -13,6 +13,21 @@ func TestPrintArrow(t *testing.T) {
     *
   *
 *`
+
+	if result != expected {
+		t.Errorf("When finding if all plants can be planted, incorrect result given, got: %v, expected: %v", result, expected)
+	}
+}
+
+func TestPrintArrowLeft(t *testing.T) {
+	size := 3
+	direction := "left"
+	result := printArrow(direction, size)
+	expected := `    *
+  *
+*
+  *
+    *`
 
 	if result != expected {
 		t.Errorf("When finding if all plants can be planted, incorrect result given, got: %v, expected: %v", result, expected)
