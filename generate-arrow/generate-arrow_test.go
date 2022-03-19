@@ -15,7 +15,7 @@ func TestPrintArrowRight(t *testing.T) {
 *`
 
 	if result != expected {
-		t.Errorf("When finding if all plants can be planted, incorrect result given, got: %v, expected: %v", result, expected)
+		t.Errorf("When generating an arrow to the right, incorrect result given, got: %v, expected: %v", result, expected)
 	}
 }
 
@@ -30,7 +30,29 @@ func TestPrintArrowLeft(t *testing.T) {
     *`
 
 	if result != expected {
-		t.Errorf("When finding if all plants can be planted, incorrect result given, got: %v, expected: %v", result, expected)
+		t.Errorf("When generating an arrow to the left, incorrect result given, got: %v, expected: %v", result, expected)
+	}
+}
+
+func TestPrintArrowEmpty(t *testing.T) {
+	size := 0
+	direction := "left"
+	result := printArrow(direction, size)
+	expected := ""
+
+	if result != expected {
+		t.Errorf("When generating an empty arrow, incorrect result given, got: %v, expected: %v", result, expected)
+	}
+}
+
+func TestPrintArrowSingle(t *testing.T) {
+	size := 1
+	direction := "left"
+	result := printArrow(direction, size)
+	expected := "*"
+
+	if result != expected {
+		t.Errorf("When generating an single arrow, incorrect result given, got: %v, expected: %v", result, expected)
 	}
 }
 

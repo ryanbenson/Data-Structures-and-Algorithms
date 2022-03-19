@@ -59,9 +59,3 @@ func printArrow(direction string, size int) string {
 
 	return arrow
 }
-
-func printArrowImplode(direction string, size int) string {
-	// build an array and implode with \n
-	// compare to the string builder
-	return ""
-}
