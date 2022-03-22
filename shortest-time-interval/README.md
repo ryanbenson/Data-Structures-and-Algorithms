@@ -13,4 +13,4 @@ $ '25 minutes'
 
 ### Initial Thoughts
 
-Just getting started, but the interesting bit is the `O(n)` time given the list should be assume it is unsorted. If it's sorted, then it's trivial. A naive way to do it is to do a normal `sort()`, but most sorts are `(O(n log n))` (heap, merge, etc.). But I found [Count Sort](https://iq.opengenus.org/time-and-space-complexity-of-counting-sort/) which is `O(n)` which will help!
+Just getting started, but the interesting bit is the `O(n)` time given the list should be assume it is unsorted. If it's sorted, then it's trivial. A naive way to do it is to do a normal `sort()`, but most sorts are `(O(n log n))` (heap, merge, etc.). But I found [Count Sort](https://iq.opengenus.org/time-and-space-complexity-of-counting-sort/) which is `O(n)` which will help! [Another interesting article and break down on it too.](https://www.interviewcake.com/concept/java/counting-sort)
