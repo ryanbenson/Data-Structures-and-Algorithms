@@ -2,6 +2,7 @@ package shortesttimeinterval
 
 import (
 	"fmt"
+	"sort"
 	"strconv"
 	"strings"
 	"time"
@@ -59,6 +60,39 @@ func smallestTimeInterval(times []string) string {
 	
 	// get how long the duration was in human friendly format
 	timeStamp := time.Unix(shortestInterval, 0).UTC()
+	hour, min, _ := timeStamp.Clock()
+	if hour > 0 {
+		return fmt.Sprintf("%d hours, %d minutes", hour, min)
+	}
+	return fmt.Sprintf("%d minutes", min)
+}
+
+func smallestTimeIntervalSimple(times []string) string {
+	intTimes := []int{}
+	for _, givenTime := range times {
+		timeSplit := strings.Split(givenTime, ":")
+		hour, _ := strconv.Atoi(timeSplit[0])
+		minute, _ := strconv.Atoi(timeSplit[1])
+		t := time.Date(2022, time.November, 10, hour, minute, 0, 0, time.UTC).Unix()
+		intTimes = append(intTimes, int(t))
+	}
+	sort.Ints(intTimes)
+
+	var shortestInterval int = 999999999999999
+	totalTimes := len(intTimes)
+	for k := 0; k < totalTimes; k++ {
+		// if we're at the end, don't bother checking for the next time
+		if k == totalTimes - 1 {
+			break
+		}
+		timeDiff := intTimes[k + 1] - intTimes[k]
+		if timeDiff < shortestInterval {
+			shortestInterval = timeDiff
+		}
+	}
+	
+	// get how long the duration was in human friendly format
+	timeStamp := time.Unix(int64(shortestInterval), 0).UTC()
 	hour, min, _ := timeStamp.Clock()
 	if hour > 0 {
 		return fmt.Sprintf("%d hours, %d minutes", hour, min)
