@@ -21,3 +21,9 @@ Just getting started, but the interesting bit is the `O(n)` time given the list 
 > * Space complexity: O(n + k)
 >
 > When k is less or equal to n, both complexities reduce to O(n)
+
+### Afterward
+
+```console
+BenchmarkSmallestTimeInterval-12    	  115831	      9488 ns/op
+```

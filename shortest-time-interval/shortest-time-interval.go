@@ -1,6 +1,7 @@
 package shortesttimeinterval
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 	"time"
@@ -56,7 +57,11 @@ func smallestTimeInterval(times []string) string {
 		}
 	}
 	
-	minsDiff := shortestInterval / 60
-	mins := strconv.FormatInt(minsDiff, 10)
-	return mins + " minutes"
+	// get how long the duration was in human friendly format
+	timeStamp := time.Unix(shortestInterval, 0).UTC()
+	hour, min, _ := timeStamp.Clock()
+	if hour > 0 {
+		return fmt.Sprintf("%d hours, %d minutes", hour, min)
+	}
+	return fmt.Sprintf("%d minutes", min)
 }
