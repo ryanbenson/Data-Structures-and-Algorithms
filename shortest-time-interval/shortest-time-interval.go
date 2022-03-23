@@ -1,5 +1,62 @@
 package shortesttimeinterval
 
+import (
+	"strconv"
+	"strings"
+	"time"
+)
+
 func smallestTimeInterval(times []string) string {
-	return "25 minutes"
+	// set min time to be something crazy high so it'll be updated by our min time easily
+	var minTime int64 = 99999999999999
+	var maxTime int64 = 0
+
+	timesMap := make(map[int64]int64)
+	for _, givenTime := range times {
+		timeSplit := strings.Split(givenTime, ":")
+		hour, _ := strconv.Atoi(timeSplit[0])
+		minute, _ := strconv.Atoi(timeSplit[1])
+		t := time.Date(2022, time.November, 10, hour, minute, 0, 0, time.UTC).Unix()
+
+		if t < minTime {
+			minTime = t
+		}
+		if t > maxTime {
+			maxTime = t
+		}
+		val, ok := timesMap[t]
+		if ok {
+			val = val + 1
+		} else {
+			timesMap[t] = 1
+		}
+	}
+	sortedTimes := []int64{}
+	// increment by minute
+	for i := minTime; i <= maxTime; i = i + 60 {
+		_, ok := timesMap[i]
+		if ok {
+			for timesMap[i] > 0 {
+				sortedTimes = append(sortedTimes, i)
+				timesMap[i]--
+			}
+		}
+	}
+
+	var shortestInterval int64 = 999999999999999
+	totalTimes := len(sortedTimes)
+	for k := 0; k < totalTimes; k++ {
+		// if we're at the end, don't bother checking for the next time
+		if k == totalTimes - 1 {
+			break
+		}
+		timeDiff := sortedTimes[k + 1] - sortedTimes[k]
+		if timeDiff < shortestInterval {
+			shortestInterval = timeDiff
+		}
+	}
+	
+	minsDiff := shortestInterval / 60
+	mins := strconv.FormatInt(minsDiff, 10)
+	return mins + " minutes"
 }
