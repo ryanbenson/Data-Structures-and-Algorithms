@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func smallestTimeInterval(times []string) string {
+func smallestTimeInterval(times []string, minTimeIncrementInSec int64) string {
 	// set min time to be something crazy high so it'll be updated by our min time easily
 	var minTime int64 = 99999999999999
 	var maxTime int64 = 0
@@ -35,7 +35,7 @@ func smallestTimeInterval(times []string) string {
 	}
 	sortedTimes := []int64{}
 	// increment by minute
-	for i := minTime; i <= maxTime; i = i + 60 {
+	for i := minTime; i <= maxTime; i = i + minTimeIncrementInSec {
 		_, ok := timesMap[i]
 		if ok {
 			for timesMap[i] > 0 {
