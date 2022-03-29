@@ -18,6 +18,10 @@ func (p *productList) get(num int) (int, error) {
 		return 0, errors.New("Invalid range of products. Exceeds amount of products in the list")
 	}
 
+	if num == 0 {
+		return 0, nil
+	}
+
 	var startIndex int = 0
 	startIndex = listLen - num
 	desiredProducts := p.list[startIndex:]
