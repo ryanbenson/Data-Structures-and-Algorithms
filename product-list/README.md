@@ -16,4 +16,8 @@ p.product(3);     // return 40 because 2 * 5 * 4
 
 ## Thoughts
 
-TBD
+This was a pretty simple exercise. The notable thing was knowing how to modify the list of products within the struct, otherwise you end up resetting the array on every call. So, if you don't use a pointer, by time you do a `get` call, there's nothing in the array. It was fun though! And since it was so simple, the performance is high:
+
+```console
+BenchmarkProductListAddGet-12    	 8652214	       132 ns/op
+```
