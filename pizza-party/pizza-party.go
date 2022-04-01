@@ -2,12 +2,12 @@ package pizzaparty
 
 import "math"
 
-type Person struct {
+type person struct {
 	name string
 	num  int
 }
 
-func getPizzaCount(people []Person, slices int) int {
+func getPizzaCount(people []person, slices int) int {
 	totalSlicesNeeded := 0
 	for _, person := range people {
 		totalSlicesNeeded += person.num

@@ -3,16 +3,16 @@ package pizzaparty
 import "testing"
 
 func TestGetPizzaCount(t *testing.T) {
-	people := []Person{}
-	people = append(people, Person{
+	people := []person{}
+	people = append(people, person{
 		name: "Joe",
 		num:  9,
 	})
-	people = append(people, Person{
+	people = append(people, person{
 		name: "Cami",
 		num:  3,
 	})
-	people = append(people, Person{
+	people = append(people, person{
 		name: "Cassidy",
 		num:  4,
 	})
@@ -27,16 +27,16 @@ func TestGetPizzaCount(t *testing.T) {
 }
 
 func BenchmarkGetPizzaCount(b *testing.B) {
-	people := []Person{}
-	people = append(people, Person{
+	people := []person{}
+	people = append(people, person{
 		name: "Joe",
 		num:  9,
 	})
-	people = append(people, Person{
+	people = append(people, person{
 		name: "Cami",
 		num:  3,
 	})
-	people = append(people, Person{
+	people = append(people, person{
 		name: "Cassidy",
 		num:  4,
 	})
