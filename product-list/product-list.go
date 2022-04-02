@@ -22,7 +22,7 @@ func (p *productList) get(num int) (int, error) {
 		return 0, nil
 	}
 
-	var startIndex int = 0
+	var startIndex int
 	startIndex = listLen - num
 	desiredProducts := p.list[startIndex:]
 	totalProductVal := 1
