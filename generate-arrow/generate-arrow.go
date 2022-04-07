@@ -2,6 +2,8 @@ package generatearrow
 
 import "strings"
 
+// Creates an ASCII arrow pointing in the direction provided
+// The size dictates how many characters to the side the point will go
 func printArrow(direction string, size int) string {
 	if size == 0 {
 		return ""
