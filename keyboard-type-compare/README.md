@@ -17,3 +17,5 @@ Example:
 ## Thoughts
 
 TBD
+
+I did have an idea about possibly evaluating each character at a time that's determined, but given you can backspace and delete, that won't work well because a produced character might be deleted later. So, I realized the best way is to simply understand hthe final string then compare them.
