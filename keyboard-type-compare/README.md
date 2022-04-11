@@ -16,6 +16,13 @@ Example:
 
 ## Thoughts
 
-TBD
+This was fun! Most of it was simple text processing. The funny bit was how to treat the forward deletes since they needed to be queued to delete future characters.
 
-I did have an idea about possibly evaluating each character at a time that's determined, but given you can backspace and delete, that won't work well because a produced character might be deleted later. So, I realized the best way is to simply understand hthe final string then compare them.
+I did have an idea about possibly evaluating each character at a time that's determined, but given you can backspace and delete, that won't work well because a produced character might be deleted later. So, I realized the best way is to simply understand the final string then compare them.
+
+Overall it runs fast!
+
+```console
+BenchmarkIsEqualSimple-12    	 3874918	       319 ns/op
+BenchmarkComplex-12          	  746710	      1768 ns/op
+```
