@@ -20,8 +20,27 @@ func TestGetInteriorAngleHigh(t *testing.T) {
 	}
 }
 
-// func BenchmarkIsEqualSimple(b *testing.B) {
-// 	for i := 0; i < b.N; i++ {
-// 		isEqual("a##x", "#a#x")
-// 	}
-// }
+func TestGetInteriorAngleBelowMin(t *testing.T) {
+	result0 := getInteriorAngle(0)
+	result1 := getInteriorAngle(1)
+	result2 := getInteriorAngle(2)
+	expected := 0
+
+	if result0 != expected {
+		t.Errorf("When getting the bigger interior angle size, but too small: is incorrect, got: %v, want: %v.", result0, expected)
+	}
+
+	if result1 != expected {
+		t.Errorf("When getting the bigger interior angle size, but too small: is incorrect, got: %v, want: %v.", result1, expected)
+	}
+
+	if result2 != expected {
+		t.Errorf("When getting the bigger interior angle size, but too small: is incorrect, got: %v, want: %v.", result2, expected)
+	}
+}
+
+func BenchmarkIsEqualSimple(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		getInteriorAngle(8)
+	}
+}
