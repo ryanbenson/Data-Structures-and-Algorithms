@@ -16,4 +16,10 @@ $ 135
 
 ## Thoughts
 
-TBD
+This was neat, but really simple. It's a pretty standardized algorithm to figure out the angle. Since it was so simple, I'll keep adding more methods!
+
+And since it's so simple, the performance is high.
+
+```console
+BenchmarkIsEqualSimple-12    	1000000000	         0.524 ns/op
+```
