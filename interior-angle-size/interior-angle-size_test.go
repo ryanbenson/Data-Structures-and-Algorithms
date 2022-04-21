@@ -39,6 +39,33 @@ func TestGetInteriorAngleBelowMin(t *testing.T) {
 	}
 }
 
+func TestGetExteriorAngle(t *testing.T) {
+	result := getExteriorAngle(5)
+	expected := 72.0
+
+	if result != expected {
+		t.Errorf("When getting the exterior angle size: is incorrect, got: %v, want: %v.", result, expected)
+	}
+}
+
+func TestGetExteriorAngleBig(t *testing.T) {
+	result := getExteriorAngle(20)
+	expected := 18.0
+
+	if result != expected {
+		t.Errorf("When getting the exterior angle size: is incorrect, got: %v, want: %v.", result, expected)
+	}
+}
+
+func TestGetExteriorAngleBigFraction(t *testing.T) {
+	result := getExteriorAngle(23)
+	expected := 15.652173913043478
+
+	if result != expected {
+		t.Errorf("When getting the exterior angle size: is incorrect, got: %v, want: %v.", result, expected)
+	}
+}
+
 func BenchmarkIsEqualSimple(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		getInteriorAngle(8)
