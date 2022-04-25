@@ -33,3 +33,9 @@ func TestTwoSum_NoMatches(t *testing.T) {
 		t.Errorf("No matches is incorrect, got: %d, want: %v.", results, nil)
 	}
 }
+
+func BenchmarkTestTwoSumHasMatchesLong(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		twoSum([]int{9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 100, 10000, 100000000, 432423423}, 100000001)
+	}
+}
