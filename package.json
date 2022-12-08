@@ -1,0 +1,19 @@
+{
+  "name": "laera",
+  "version": "1.0.0",
+  "description": "Ég elska að læra",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanbenson/laera.git"
+  },
+  "author": "Ryan Benson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ryanbenson/laera/issues"
+  },
+  "homepage": "https://github.com/ryanbenson/laera#readme"
+}
