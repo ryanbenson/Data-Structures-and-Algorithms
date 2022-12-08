@@ -1,5 +1,5 @@
 const test = require('ava');
-const { getMostCalories, getMostCaloriesFile } = require('./index')
+const { getMostCalories, getMostCaloriesFile } = require('./index');
 
 test('#getMostCalories when given a valid sample', t => {
     const sample = `1000

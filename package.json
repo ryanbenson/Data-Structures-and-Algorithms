@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ryanbenson/laera#readme",
   "dependencies": {
-    "ava": "^5.1.0"
+    "ava": "^5.1.0",
+    "benchmark": "^2.1.4"
   }
 }
