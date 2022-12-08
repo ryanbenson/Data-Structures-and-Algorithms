@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ryanbenson/laera/issues"
   },
-  "homepage": "https://github.com/ryanbenson/laera#readme"
+  "homepage": "https://github.com/ryanbenson/laera#readme",
+  "dependencies": {
+    "ava": "^5.1.0"
+  }
 }
