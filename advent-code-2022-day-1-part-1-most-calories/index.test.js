@@ -2269,7 +2269,7 @@ test('#getMostCalories when given a long valid sample', t => {
 });
 
 test('#getMostCaloriesFile when given a valid sample file', async t => {
-    const result = await getMostCaloriesFile('./advent-code-2022-day-1-most-calories/sample.txt');
+    const result = await getMostCaloriesFile('./advent-code-2022-day-1-part-1-most-calories/sample.txt');
     const expected = 24000;
     t.is(result, expected);
 });

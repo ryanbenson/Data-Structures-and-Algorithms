@@ -23,7 +23,7 @@ const getCalories = (input) => {
     // get the top 3, which are at the end of the array, then add them up
     const top3Calories = calories.slice(-3);
     const totalCalories = top3Calories.reduce((cur, next) => {
-        return cur + Number(next);
+        return cur + next;
     }, 0);
     return totalCalories;
 };
