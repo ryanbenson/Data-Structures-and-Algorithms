@@ -3,7 +3,7 @@
  * Input will be a string with every line has a snack value of calories in a number
  * If there's a blank line, then that separates a person from one another
  * This will find the person that has the most calories with their snacks
- * @param {String} file 
+ * @param {String} input to process 
  * @returns {Number}
  */
 const getMostCalories = (input) => {
