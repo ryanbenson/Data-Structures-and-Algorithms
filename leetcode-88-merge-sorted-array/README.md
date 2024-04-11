@@ -21,4 +21,11 @@ That runtime win!
 
 Overall quite easy. Mostly just use splicing to do the magic for you, and overall it's a really simple way to approach it.
 
-There's a bonus to do it in O(m+n), but I may come back to that.
+There's a bonus to do it in O(m+n), and I did manage to do it. Ironically though, the O(m+n) solution performed worse:
+
+```
+Runtime: 49ms
+Beats 79.00% of users with JavaScript
+```
+
+You basically take the 2 pre-sorted arrays, look at the ends, take the higher number, and then move that into the latter position, and move your pointer down. You keep doing that until you're at the end of your pointer.
