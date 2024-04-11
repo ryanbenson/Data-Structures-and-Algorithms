@@ -28,12 +28,12 @@ var merge = function (nums1, m, nums2, n) {
  * then they're sorted. In action:
  * nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
  *
- * [ 1, 2, 3, 0, 0, 6 ]
- * [ 1, 2, 3, 0, 5, 6 ]
- * [ 1, 2, 3, 3, 5, 6 ]
- * [ 1, 2, 2, 3, 5, 6 ]
- * [ 1, 2, 2, 3, 5, 6 ]
- * [ 1, 2, 2, 3, 5, 6 ]
+ * [ 1, 2, 3, 0, 0, 6 ] - add the 6
+ * [ 1, 2, 3, 0, 5, 6 ] - add the 5
+ * [ 1, 2, 3, 3, 5, 6 ] - move the 3 up one, but not above the 5
+ * [ 1, 2, 2, 3, 5, 6 ] - add the 2 from nums 2
+ * [ 1, 2, 2, 3, 5, 6 ] - check the first 2 from nums 1
+ * [ 1, 2, 2, 3, 5, 6 ] - check the first item in nums 1, done
  * @param {number[]} nums1
  * @param {number} m
  * @param {number[]} nums2
