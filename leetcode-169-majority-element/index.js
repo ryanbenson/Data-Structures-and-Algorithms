@@ -55,3 +55,28 @@ var majorityElementMap = function (nums) {
   }
   return mode;
 };
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var majorityElementVoting = function (nums) {
+  let numsLen = nums.length;
+  if (!numsLen) {
+    return 0;
+  }
+  let curNum = nums[0];
+  let counter = 0;
+  for (let i = 0; i < numsLen; i++) {
+    if (nums[i] === curNum) {
+      counter++;
+    } else {
+      counter--;
+    }
+    if (counter === 0) {
+      curNum = nums[i];
+      counter = 1;
+    }
+  }
+  return curNum;
+};
