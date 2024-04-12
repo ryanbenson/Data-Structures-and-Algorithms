@@ -30,3 +30,28 @@ var majorityElement = function (nums) {
   }
   return curMajorityNum;
 };
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var majorityElementMap = function (nums) {
+  const numsLen = nums.length;
+  if (numsLen === 1) {
+    return nums[0];
+  }
+  let map = {};
+  let mode = nums[0];
+  for (let i = 0; i < numsLen; i++) {
+    let num = nums[i];
+    if (!map[num]) {
+      map[num] = 1;
+    } else {
+      map[num] = map[num] + 1;
+    }
+    if (map[num] > map[mode]) {
+      mode = nums[i];
+    }
+  }
+  return mode;
+};
