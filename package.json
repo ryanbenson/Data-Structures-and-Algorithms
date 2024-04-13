@@ -4,7 +4,8 @@
   "description": "Ég elska að læra",
   "main": "index.js",
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "test:coverage": "c8 ava"
   },
   "repository": {
     "type": "git",

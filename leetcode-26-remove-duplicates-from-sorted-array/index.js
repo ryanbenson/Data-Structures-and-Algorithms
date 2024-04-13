@@ -21,3 +21,7 @@ var removeDuplicates = function (nums) {
   }
   return lastNumberIndex;
 };
+
+module.exports = {
+  removeDuplicates,
+};

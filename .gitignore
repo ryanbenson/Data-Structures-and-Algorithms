@@ -16,3 +16,4 @@
 
 # JS stuff to ignore
 node_modules
+coverage
