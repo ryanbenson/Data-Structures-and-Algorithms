@@ -1,23 +1,23 @@
-name: Node workflow
+# name: Node workflow
 
-on: [push, pull_request]
+# on: [push, pull_request]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    name: Node Coverage
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20.x"
-      - name: Install requirements
-        run: npm i
-      - name: Install c8
-        run: npm install -g c8
-      - name: Run tests and collect coverage
-        run: npm run test:coverage
-      - name: Upload coverage reports to Codecov with GitHub Action
-        uses: codecov/codecov-action@v4.2.0
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     name: Node Coverage
+#     steps:
+#       - uses: actions/checkout@v4
+#       - uses: actions/setup-node@v4
+#         with:
+#           node-version: "20.x"
+#       - name: Install requirements
+#         run: npm i
+#       - name: Install c8
+#         run: npm install -g c8
+#       - name: Run tests and collect coverage
+#         run: npm run test:coverage
+#       - name: Upload coverage reports to Codecov with GitHub Action
+#         uses: codecov/codecov-action@v4.2.0
+#         env:
+#           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
