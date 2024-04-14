@@ -1,3 +1,8 @@
+# For future reference
+# My CodeCov configuration isn't setup well for both Node + Go
+# So commenting this out for now until I figure that out,
+# Or just move to Go
+#
 # name: Node workflow
 
 # on: [push, pull_request]
