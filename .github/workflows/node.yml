@@ -13,6 +13,8 @@ jobs:
           node-version: "20.x"
       - name: Install requirements
         run: npm i
+      - name: Install c8
+        run: npm install -g c8
       - name: Run tests and collect coverage
         run: c8 ava
       - name: Upload coverage reports to Codecov with GitHub Action
